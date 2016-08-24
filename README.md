@@ -24,8 +24,9 @@ php artisan serve
 
 ## License
 
-Copyright (C) 2016  Átila Camurça <camurca.home@gmail.com>
-Fidias Free and Open Source Team <fidiascom@gmail.com>
+Copyright (C) 2016 Átila Camurça <camurca.home@gmail.com>
+
+Grupo SanUSB <http://sanusb.org>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
