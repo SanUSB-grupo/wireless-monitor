@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Monitor;
+
 class MonitorController extends Controller
 {
     public function __construct()

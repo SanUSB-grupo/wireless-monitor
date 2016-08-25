@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/monitor/{monitor_key}', 'MonitorController@index');
-
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/monitor', 'MonitorController@index');
+Route::resource('temperature', 'Monitors\TemperatureController');
