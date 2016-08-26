@@ -1,6 +1,10 @@
 
 @extends('layouts.app')
 
+@push('scripts')
+    <script src="{{ elixir('js/monitors/index.js') }}"></script>
+@endpush
+
 @section('content')
 
 <div class="row">
@@ -16,7 +20,7 @@
 <div class="row">
     <div class="col-md-12">
         <h4>Monitors</h4><hr>
-        <?php if (isset($result)) var_dump($result); ?>
+        <div id="root-app"></div>
     </div>
 </div>
 
