@@ -15,8 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/monitor/{monitor_key}', 'MonitorController@index');
-
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+Route::get('/monitor', 'MonitorController@index');
+Route::get('/monitor/ajax-list', 'MonitorController@ajaxList');
+Route::get('/monitor/ajax-get', 'MonitorController@ajaxGet');
+Route::get('/monitor/{id}', 'MonitorController@show');
+Route::resource('temperature', 'Monitors\TemperatureController');
