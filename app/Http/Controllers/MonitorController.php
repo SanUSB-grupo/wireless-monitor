@@ -21,6 +21,6 @@ class MonitorController extends Controller
         $list = Monitor::where('user_id', Auth::user()->id)
             ->orderBy('updated_at', 'desc')
             ->get();
-        return response()->json($list);
+        return response()->json(['list' => $list]);
     }
 }

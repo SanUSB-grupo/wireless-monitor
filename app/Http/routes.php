@@ -19,4 +19,5 @@ Route::auth();
 
 Route::get('/home', 'HomeController@index');
 Route::get('/monitor', 'MonitorController@index');
+Route::get('/monitor/ajax-list', 'MonitorController@ajaxList');
 Route::resource('temperature', 'Monitors\TemperatureController');
