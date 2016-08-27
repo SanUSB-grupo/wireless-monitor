@@ -1,6 +1,10 @@
 
 @extends('layouts.app')
 
+@push('styles')
+    <link href="{{ elixir('css/boxes.css') }}" rel="stylesheet">
+@endpush
+
 @push('scripts')
     <script src="{{ elixir('js/monitors/index.js') }}"></script>
 @endpush

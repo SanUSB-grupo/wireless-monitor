@@ -7,12 +7,11 @@ import MonitorView from './MonitorView.jsx';
 export default class MonitorListView extends Component {
     render() {
         return (
-            <div>
-                <ul>
-                    {this.props.store.list.map(item =>
-                        <MonitorView item={item} key={item.id} />
-                    )}
-                </ul>
+            <div className="row">
+                {this.props.store.loading ? 'Carregando ...' : ''}
+                {this.props.store.list.map(item =>
+                    <MonitorView item={item} key={item.id} />
+                )}
             </div>
         );
     }

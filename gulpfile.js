@@ -16,7 +16,11 @@ elixir(function(mix) {
         'monitors/index.jsx'
     ], 'public/js/monitors/index.js');
 
-    mix.version('public/js/monitors/index.js');
+    mix.styles([
+        'AdminLTE-boxes.css'
+    ], 'public/css/boxes.css');
+
+    mix.version(['public/js/monitors/index.js', 'public/css/boxes.css']);
 
     mix.sass('app.scss');
 });

@@ -6,3 +6,6 @@ Homestead.json
 .env
 composer.lock
 composer.phar
+public/build/
+public/js
+public/css
