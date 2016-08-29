@@ -16,6 +16,24 @@ Install dependencies
 php composer.phar install
 ~~~
 
+Create `.env` file
+
+~~~bash
+cp .env.example .env
+~~~
+
+Generate key for JWT
+
+~~~bash
+php artisan key:generate
+~~~
+
+Migrate database (first time only)
+
+~~~bash
+php artisan migrate
+~~~
+
 Start the local server
 
 ~~~bash

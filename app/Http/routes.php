@@ -23,3 +23,10 @@ Route::get('/monitor/ajax-list', 'MonitorController@ajaxList');
 Route::get('/monitor/ajax-get', 'MonitorController@ajaxGet');
 Route::get('/monitor/{id}', 'MonitorController@show');
 Route::resource('temperature', 'Monitors\TemperatureController');
+
+Route::group(['prefix' => 'api'], function()
+{
+	Route::resource('authenticate', 'JWTAuthController', ['only' => ['index']]);
+	Route::post('authenticate', 'JWTAuthController@authenticate');
+    Route::resource('send', 'Api\SendController');
+});
