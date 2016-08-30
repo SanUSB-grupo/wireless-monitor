@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "webpatser/laravel-uuid": "2.*",
         "watson/bootstrap-form": "^1.0",
-        "tymon/jwt-auth": "^0.5.9"
+        "tymon/jwt-auth": "^0.5.9",
+        "league/json-guard": "^0.3.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
