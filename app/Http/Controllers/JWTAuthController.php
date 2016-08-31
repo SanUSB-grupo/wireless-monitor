@@ -26,7 +26,7 @@ class JWTAuthController extends Controller
      */
     public function index()
     {
-        return response()->json(['teste' => 'teste'], 200);
+        return response()->json(['ok?' => true], 200);
     }
 
     /**
@@ -45,7 +45,6 @@ class JWTAuthController extends Controller
                                 ['monitors.monitor_key', '=', $keys['monitor_key']],
                             ])
                             ->first();
-        // return response()->json(['msg' => $credentials], 200);
         try {
             $user = null;
             $custom_claims = null;

@@ -28,5 +28,5 @@ Route::group(['prefix' => 'api'], function()
 {
 	Route::resource('authenticate', 'JWTAuthController', ['only' => ['index']]);
 	Route::post('authenticate', 'JWTAuthController@authenticate');
-    Route::resource('send', 'Api\SendController');
+    Route::resource('send', 'Api\SendController', ['only' => ['store']]);
 });
