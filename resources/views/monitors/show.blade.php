@@ -21,7 +21,10 @@
                 <a href="#setup" aria-controls="setup" role="tab" data-toggle="tab">Setup</a>
             </li>
             <li role="presentation">
-                <a href="#view" aria-controls="view" role="tab" data-toggle="tab">View</a>
+                <a href="#view" aria-controls="view" role="tab" data-toggle="tab">View Data</a>
+            </li>
+            <li role="presentation">
+                <a href="#graph" aria-controls="view" role="tab" data-toggle="tab">View Graph</a>
             </li>
         </ul>
     </div>
@@ -33,7 +36,7 @@
 
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane active" id="setup">
-        @include('monitors.show.setup', ['code' => $code])
+        @include('monitors.show.setup', ['auth_json' => $auth_json, 'send_json' => $send_json])
     </div>
     <div role="tabpanel" class="tab-pane" id="view">
         @include('monitors.show.view')

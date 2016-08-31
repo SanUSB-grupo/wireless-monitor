@@ -28,12 +28,16 @@ class MonitorController extends Controller
     public function show($id) {
         $monitor = $this->get($id);
         $user = Auth::user();
-        $code = "{
+        $auth_json = "{
   \"api_key\": \"{$user->api_key}\",
-  \"monitor_key\": \"{$monitor->monitor_key}\",
-  \"value\": \"your_value\"
+  \"monitor_key\": \"{$monitor->monitor_key}\"
 }";
-        return view('monitors.show', ['monitor' => $monitor, 'code' => $code]);
+        $send_json = "data={\"value\": 56.98}";
+        return view('monitors.show', [
+            'monitor' => $monitor,
+            'auth_json' => $auth_json,
+            'send_json' => $send_json,
+        ]);
     }
 
     public function ajaxGet(Request $request) {

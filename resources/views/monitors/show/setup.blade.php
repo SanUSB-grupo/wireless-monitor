@@ -19,7 +19,7 @@
                     <li>Arduino with Wi-Fi Shield</li>
                 </ul>
                 <p>
-                    Then you need to collect data.
+                    Then you need to collect data with some kind of sensor.
                 </p>
             </div>
         </div>
@@ -32,18 +32,19 @@
             <div class="box-body">
                 <img src="{{asset('img/cloud.png')}}" class="img-responsive" />
                 <h4 class="text-center">
-                    Send a JSON object with the some data
+                    Authenticate you Device
                 </h4>
-                <pre>{{ $code }}</pre>
-                <div>
-                    Change <code>your_value</code> to the collected
-                    value, either a temperature or a distance.
-                </div>
-                <div>
+                <pre>{{ $auth_json }}</pre>
+                <p>
                     The <code>api_key</code> identifies you, and
                     the <code>monitor_key</code> identifies your
                     device. This values must be secret.
-                </div>
+                </p>
+                <p>
+                    To authenticate you have to make a POST request
+                    to the endpoint <code>/api/authenticate</code>.
+                    After success you will receive a <code>token</code>.
+                </p>
             </div>
             <div class="box-footer">
                 <h4>Useful links</h4>
@@ -66,10 +67,16 @@
                     View your data in the web
                 </h4>
                 <p>
+                    Send some data from you IOT device. Make a POST request
+                    to the endpoint <code>/api/send</code> using your <code>token</code>
+                    in the header, <code>Authorization: Bearer &lt;token&gt;</code>.
+                </p>
+                <pre>{{ $send_json }}</pre>
+                <p>
                     To view the data sent click on the button bellow.
                 </p>
                 <a href="#view" data-toggle="tab" class="btn btn-primary btn-block">
-                    View
+                    View Data
                 </a>
             </div>
         </div>
