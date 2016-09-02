@@ -9,7 +9,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <a href="<?php echo url('temperature/create'); ?>" class="btn btn-default btn-lg">
+        <a href="<?php echo url('temperature/create'); ?>" class="btn btn-primary btn-lg">
             <i class="fa fa-dashboard"></i>
             New Temperature Monitor
         </a>

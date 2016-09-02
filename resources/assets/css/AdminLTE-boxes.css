@@ -97,7 +97,7 @@
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 .box.box-primary {
-  border-top-color: #3c8dbc;
+  border-top-color: #18bc9c;
 }
 .box.box-info {
   border-top-color: #00c0ef;
@@ -158,12 +158,12 @@
   color: #444444;
 }
 .box.box-solid.box-primary {
-  border: 1px solid #3c8dbc;
+  border: 1px solid #18bc9c;
 }
 .box.box-solid.box-primary > .box-header {
   color: #ffffff;
-  background: #3c8dbc;
-  background-color: #3c8dbc;
+  background: #18bc9c;
+  background-color: #18bc9c;
 }
 .box.box-solid.box-primary > .box-header a,
 .box.box-solid.box-primary > .box-header .btn {
@@ -547,7 +547,7 @@
   background-color: #0073b7 !important;
 }
 .bg-light-blue {
-  background-color: #3c8dbc !important;
+  background-color: #18bc9c !important;
 }
 .bg-green {
   background-color: #00a65a !important;
@@ -645,7 +645,7 @@
   color: #111111 !important;
 }
 .text-light-blue {
-  color: #3c8dbc !important;
+  color: #18bc9c !important;
 }
 .text-green {
   color: #00a65a !important;
@@ -721,12 +721,12 @@
   color: #fff;
 }
 .bg-light-blue-gradient {
-  background: #3c8dbc !important;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #3c8dbc), color-stop(1, #67a8ce)) !important;
-  background: -ms-linear-gradient(bottom, #3c8dbc, #67a8ce) !important;
-  background: -moz-linear-gradient(center bottom, #3c8dbc 0%, #67a8ce 100%) !important;
-  background: -o-linear-gradient(#67a8ce, #3c8dbc) !important;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#67a8ce', endColorstr='#3c8dbc', GradientType=0) !important;
+  background: #18bc9c !important;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #18bc9c), color-stop(1, #67a8ce)) !important;
+  background: -ms-linear-gradient(bottom, #18bc9c, #67a8ce) !important;
+  background: -moz-linear-gradient(center bottom, #18bc9c 0%, #67a8ce 100%) !important;
+  background: -o-linear-gradient(#67a8ce, #18bc9c) !important;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#67a8ce', endColorstr='#18bc9c', GradientType=0) !important;
   color: #fff;
 }
 .bg-blue-gradient {

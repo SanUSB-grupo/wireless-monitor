@@ -46,7 +46,7 @@ elixir(function(mix) {
     ], 'public/vendor/vendor.js', vendor);
 
     mix.styles([
-        'bootstrap/dist/css/bootstrap.css',
+        'bootswatch/flatly/bootstrap.css',
         'balloon.css/balloon.css',
         '../assets/css/AdminLTE-boxes.css',
     ], 'public/vendor/vendor.css', vendor);
