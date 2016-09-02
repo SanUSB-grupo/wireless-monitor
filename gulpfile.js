@@ -1,3 +1,6 @@
+// enable or disable notifications
+process.env.DISABLE_NOTIFIER = true;
+
 var elixir = require('laravel-elixir');
 
 /*
@@ -19,23 +22,48 @@ elixir(function(mix) {
     ], 'public/js/monitors/index.js');
 
     mix.scripts([
-        'monitors/show.js'
-    ], 'public/js/monitors/show.js');
+        'monitors/show-main.js'
+    ], 'public/js/monitors/show-main.js');
 
     mix.scripts([
+        'monitors/monitor.js'
+    ], 'public/js/monitors/monitor.js');
+
+    mix.scripts([
+        'monitors/timeout.js'
+    ], 'public/js/monitors/timeout.js');
+
+    mix.scripts([
+        'monitors/components/temperature.js'
+    ], 'public/js/monitors/components/temperature.js');
+
+    mix.scripts([
+        'jquery/dist/jquery.js',
+        'bootstrap/dist/js/bootstrap.js',
         'mustache.js/mustache.js',
-        'jquery-knob/js/jquery.knob.js'
+        'jquery-knob/js/jquery.knob.js',
+        'moment/min/moment-with-locales.js'
     ], 'public/vendor/vendor.js', vendor);
 
     mix.styles([
+        'bootstrap/dist/css/bootstrap.css',
+        'balloon.css/balloon.css',
         '../assets/css/AdminLTE-boxes.css',
     ], 'public/vendor/vendor.css', vendor);
+
+    mix.scripts([
+        'requirejs/require.js'
+    ], 'public/js/require.js', vendor);
 
     mix.version([
         'public/js/monitors/index.js',
         'public/vendor/vendor.js',
         'public/vendor/vendor.css',
-        'public/js/monitors/show.js'
+        'public/js/require.js',
+        'public/js/monitors/show-main.js',
+        'public/js/monitors/monitor.js',
+        'public/js/monitors/components/temperature.js',
+        'public/js/monitors/timeout.js',
     ]);
 
     mix.sass('app.scss');

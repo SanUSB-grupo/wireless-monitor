@@ -1,0 +1,58 @@
+<!-- Mustache template -->
+<style>
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+    .limits {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .limits--item {
+        flex-grow: 1;
+    }
+
+    .limits--item h2 {
+        text-align: center;
+    }
+</style>
+<div class="row">
+    <div class="col-md-4">
+        <div class="header">
+            <div>
+                <h3>
+                    {{data.description}}
+                </h3>
+            </div>
+            <div>
+                <span class="label label-primary pull-right" data-balloon="{{item.created_at}}">
+                    {{#moment}}{{item.created_at}}{{/moment}}
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div align="center">
+            <input type="text" value="{{item.data.value}}" data-angleArc="250"
+                data-min="{{data.min}}" data-max="{{data.max}}"
+                data-angleOffset="-125" class="input-knob" readonly="readonly"
+                style="font: bold 50px Lato"/>
+        </div>
+        <div class="limits">
+            <div class="limits--item">
+                <h2 class="text-danger">
+                    {{data.min}}
+                    <br>Min
+                </h2>
+            </div>
+            <div class="limits--item">
+                <h2 class="text-success">
+                    {{data.max}}
+                    <br>Max
+                </h2>
+            </div>
+        </div>
+    </div>
+</div>

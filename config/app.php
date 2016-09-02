@@ -122,6 +122,10 @@ return [
     */
 
     'providers' => [
+        /*
+         * Laravel Debug Bar
+         */
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Laravel Framework Service Providers...
@@ -217,6 +221,8 @@ return [
         // JWT
         'JWTAuth'   => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

@@ -2,7 +2,8 @@
 @extends('layouts.app')
 
 @push('scripts')
-    <script src="{{ elixir('js/monitors/show.js') }}"></script>
+    <script src="{{ asset('js/require.js') }}"
+        data-main="{{ asset('js/monitors/show-main.js') }}"></script>
 @endpush
 
 @section('content')
@@ -32,6 +33,7 @@
 
 <p>
     <input type="hidden" id="id" value="{{ $monitor->id }}" />
+    <input type="hidden" id="type" value="{{ $monitor->data['type'] }}" />
 </p>
 
 <div class="tab-content">
@@ -42,7 +44,5 @@
         @include('monitors.show.view')
     </div>
 </div>
-
-@include('monitors.show.components.temperature')
 
 @endsection
