@@ -21,6 +21,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/monitor', 'MonitorController@index');
 Route::get('/monitor/ajax-list', 'MonitorController@ajaxList');
 Route::get('/monitor/ajax-get', 'MonitorController@ajaxGet');
+Route::get('/monitor/ajax-get-measures', 'MonitorController@ajaxGetMeasures');
 Route::get('/monitor/{id}', 'MonitorController@show');
 Route::resource('temperature', 'Monitors\TemperatureController');
 
