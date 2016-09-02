@@ -30,6 +30,7 @@ define(['jquery', 'moment', 'monitors/monitor', 'monitors/timeout'],
             readOnly: true,
             width: 250,
             fontWeight: 'hack', // hack: override default font size!
+            fgColor: '#3498db'
         });
     };
 
