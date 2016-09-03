@@ -1,6 +1,6 @@
 
-define(['jquery', 'moment', 'monitors/monitor', 'monitors/timeout'],
-    function ($, moment, model, TIMEOUT) {
+define(['jquery', 'moment', 'Chartist', 'monitors/monitor', 'monitors/timeout'],
+    function ($, moment, Chartist, model, TIMEOUT) {
 
     var id = $('input#id').val();
     var $app = $('div#monitor-view');
@@ -8,7 +8,6 @@ define(['jquery', 'moment', 'monitors/monitor', 'monitors/timeout'],
     var utils = {
         moment: function () {
             return function (text, render) {
-                console.log(text);
                 return moment(render(text)).fromNow();
             };
         }
@@ -17,11 +16,17 @@ define(['jquery', 'moment', 'monitors/monitor', 'monitors/timeout'],
     var Temperature = function (template, monitor) {
         this.template = template;
         this.monitor = $.extend(monitor, utils);
+        this.chartOptions = {
+            low: this.monitor.data.min,
+            high: this.monitor.data.max,
+            lineSmooth: Chartist.Interpolation.simple({
+                divisor: 2
+            })
+        };
     };
 
     Temperature.prototype.render = function (items) {
         items = items || [];
-        console.log(items);
         var len = items.length;
         this.monitor.item = items[len - 1];
         var result = model.render(this.template, this.monitor);
@@ -32,6 +37,22 @@ define(['jquery', 'moment', 'monitors/monitor', 'monitors/timeout'],
             fontWeight: 'hack', // hack: override default font size!
             fgColor: '#3498db'
         });
+    };
+    Temperature.prototype.plot = function (items) {
+        items = items || [];
+        var labels = [];
+        var serie = [];
+        var len = items.length;
+        for (var i = 0; i < len; i++) {
+            var item = items[i];
+            labels.push(item.created_at);
+            serie.push(item.data.value);
+        }
+
+        this.chart = new Chartist.Line('.ct-chart', {
+            labels: labels,
+            series: [serie]
+        }, this.chartOptions);
     };
 
     $.when(
@@ -44,6 +65,7 @@ define(['jquery', 'moment', 'monitors/monitor', 'monitors/timeout'],
         var items = resp3[0].items;
         var t = new Temperature(template, monitor);
         t.render(items);
+        t.plot(items);
         onComplete(t);
     });
 
@@ -57,6 +79,7 @@ define(['jquery', 'moment', 'monitors/monitor', 'monitors/timeout'],
             promise.done(function (resp) {
                 var items = resp.items;
                 temperature.render(items);
+                temperature.plot(items);
                 onComplete(temperature);
             });
         }, TIMEOUT);

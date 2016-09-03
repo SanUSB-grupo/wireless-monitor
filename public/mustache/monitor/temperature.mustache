@@ -18,6 +18,16 @@
     .limits--item h2 {
         text-align: center;
     }
+
+    .ct-series-a .ct-line {
+        /* Set the colour of this series line */
+        stroke: #3498db;
+    }
+
+    .ct-series-a .ct-point {
+        /* Colour of your points */
+        stroke: #217dbb;
+    }
 </style>
 <div class="row">
     <div class="col-md-4">
@@ -43,16 +53,23 @@
         <div class="limits">
             <div class="limits--item">
                 <h2 class="text-danger">
-                    {{data.min}}
-                    <br>Min
+                    <strong>
+                        {{data.min}}
+                        <br>Min
+                    </strong>
                 </h2>
             </div>
             <div class="limits--item">
                 <h2 class="text-success">
-                    {{data.max}}
-                    <br>Max
+                    <strong>
+                        {{data.max}}
+                        <br>Max
+                    </strong>
                 </h2>
             </div>
         </div>
+    </div>
+    <div class="col-md-7 col-md-offset-1">
+        <div class="ct-chart ct-perfect-fourth"></div>
     </div>
 </div>

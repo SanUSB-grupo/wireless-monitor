@@ -42,12 +42,14 @@ elixir(function(mix) {
         'bootstrap/dist/js/bootstrap.js',
         'mustache.js/mustache.js',
         'jquery-knob/js/jquery.knob.js',
+        'chartist/dist/chartist.js',
         'moment/min/moment-with-locales.js'
     ], 'public/vendor/vendor.js', vendor);
 
     mix.styles([
         'bootswatch/flatly/bootstrap.css',
         'balloon.css/balloon.css',
+        'chartist/dist/chartist.css',
         '../assets/css/AdminLTE-boxes.css',
     ], 'public/vendor/vendor.css', vendor);
 
