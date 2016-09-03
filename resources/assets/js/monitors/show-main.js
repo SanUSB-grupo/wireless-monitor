@@ -10,7 +10,11 @@ define('jquery', [], function() {
 
 define('moment', [], function () {
     return moment;
-})
+});
+
+define('Chartist', [], function () {
+    return Chartist;
+});
 
 require(['jquery', 'monitors/monitor'], function ($, monitor) {
     var $type = $('input#type');
