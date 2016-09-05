@@ -45,14 +45,14 @@
         </div>
         <hr>
         <div align="center">
-            <input type="text" value="{{item.data.value}}" data-angleArc="250"
+            <input type="text" value="{{#getValue}}{{/getValue}}" data-angleArc="250"
                 data-min="{{data.min}}" data-max="{{data.max}}"
                 data-angleOffset="-125" class="input-knob" readonly="readonly"
-                style="font: bold 50px Lato"/>
+                style="font: bold 50px Lato" data-fgColor="{{#getFgColor}}{{/getFgColor}}"/>
         </div>
         <div class="limits">
             <div class="limits--item">
-                <h2 class="text-danger">
+                <h2 class="text-warning">
                     <strong>
                         {{data.min}}
                         <br>Min
@@ -60,7 +60,7 @@
                 </h2>
             </div>
             <div class="limits--item">
-                <h2 class="text-success">
+                <h2 class="text-danger">
                     <strong>
                         {{data.max}}
                         <br>Max
