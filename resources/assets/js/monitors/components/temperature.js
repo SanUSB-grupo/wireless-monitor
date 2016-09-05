@@ -1,15 +1,45 @@
 
-define(['jquery', 'moment', 'Chartist', 'monitors/monitor', 'monitors/timeout'],
-    function ($, moment, Chartist, model, TIMEOUT) {
+define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
+    function ($, moment, Chartist, TIMEOUT, model) {
 
     var id = $('input#id').val();
     var $app = $('div#monitor-view');
+
+    function notHigherNotLower(value, min, max) {
+        if (value < min) {
+            return min;
+        } else if (value > max) {
+            return max;
+        }
+        return value;
+    }
 
     var utils = {
         moment: function () {
             return function (text, render) {
                 return moment(render(text)).fromNow();
             };
+        },
+        getFgColor: function () {
+            var total = this.data.max - this.data.min;
+            var third = total / 3.0;
+            var value = this.item.data.value;
+            var color = '#3498db'; // blue
+            if (value >= this.data.min && value < (this.data.min + third)) {
+                color = '#f39c12'; // yellow
+            } else if (value > (this.data.max - third) && value <= this.data.max) {
+                color = '#e74c3c'; // red
+            }
+            return function (text, render) {
+                return color;
+            }
+        },
+        getValue: function () {
+            var value = notHigherNotLower(
+                this.item.data.value, this.data.min, this.data.max);
+            return function (text, render) {
+                return value;
+            }
         }
     };
 
@@ -35,7 +65,6 @@ define(['jquery', 'moment', 'Chartist', 'monitors/monitor', 'monitors/timeout'],
             readOnly: true,
             width: 250,
             fontWeight: 'hack', // hack: override default font size!
-            fgColor: '#3498db'
         });
     };
     Temperature.prototype.plot = function (items) {
@@ -46,7 +75,9 @@ define(['jquery', 'moment', 'Chartist', 'monitors/monitor', 'monitors/timeout'],
         for (var i = 0; i < len; i++) {
             var item = items[i];
             labels.push(item.created_at);
-            serie.push(item.data.value);
+            var value = notHigherNotLower(
+                item.data.value, this.monitor.data.min, this.monitor.data.max);
+            serie.push(value);
         }
 
         this.chart = new Chartist.Line('.ct-chart', {
