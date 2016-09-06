@@ -37,9 +37,9 @@ define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
             var value = ToInteger(this.item.data.value);
             var color = '#3498db'; // blue
             if (value >= min && value < (min + third)) {
-                color = '#f39c12'; // yellow
+                color = '#2c3e50'; // black
             } else if (value > (max - third) && value <= max) {
-                color = '#e74c3c'; // red
+                color = '#18bc9c'; // green
             }
             return function (text, render) {
                 return color;
@@ -54,7 +54,7 @@ define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
         }
     };
 
-    var Temperature = function (template, monitor) {
+    var Photoresistor = function(template, monitor) {
         this.template = template;
         this.monitor = $.extend(monitor, utils);
         this.chartOptions = {
@@ -66,7 +66,7 @@ define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
         };
     };
 
-    Temperature.prototype.render = function (items) {
+    Photoresistor.prototype.render = function (items) {
         items = items || [];
         var len = items.length;
         if (len > 0) {
@@ -81,7 +81,7 @@ define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
         }
     };
 
-    Temperature.prototype.plot = function (items) {
+    Photoresistor.prototype.plot = function (items) {
         items = items || [];
         var labels = [];
         var serie = [];
@@ -103,36 +103,36 @@ define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
     };
 
     $.when(
-        $.get('/templates/temperature/show.mustache'),
+        $.get('/templates/photoresistor/show.mustache'),
         model.fetch(id, onCompleteOnce),
         model.measures(id, onCompleteOnce)
     ).done(function (resp1, resp2, resp3) {
         var template = resp1[0];
         var monitor = resp2[0].monitor;
         var items = resp3[0].items;
-        var t = new Temperature(template, monitor);
-        t.render(items);
-        t.plot(items);
+        var obj = new Photoresistor(template, monitor);
+        obj.render(items);
+        obj.plot(items);
         // if there's no data, send user to setup tab
         if (!items.length) {
             $app.html('');
             $('.nav-tabs a#tab-setup').tab('show');
         }
-        onComplete(t);
+        onComplete(obj);
     });
 
     function onCompleteOnce() {
         console.info('promise loaded.');
     }
 
-    function onComplete(temperature) {
+    function onComplete(photoresistor) {
         setTimeout(function () {
             var promise = model.measures(id);
             promise.done(function (resp) {
                 var items = resp.items;
-                temperature.render(items);
-                temperature.plot(items);
-                onComplete(temperature);
+                photoresistor.render(items);
+                photoresistor.plot(items);
+                onComplete(photoresistor);
             });
         }, TIMEOUT);
     }

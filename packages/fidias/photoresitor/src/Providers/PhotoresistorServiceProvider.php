@@ -14,9 +14,16 @@ class PhotoresistorServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        require __DIR__ . '/../Http/routes.php';
-
         $this->loadViewsFrom(__DIR__ . '/../views', 'photoresistor');
+
+        $this->publishes([
+            __DIR__ . '/../storage/json-schema' => storage_path('app/json-schema')
+        ], 'storage');
+
+        $timestamp = date('Y_m_d_His', time());
+        $this->publishes([
+            __DIR__ . '/../migrations/insert_photoresistor_monitor.php' => database_path('/migrations/' . $timestamp . '_insert_photoresistor_monitor.php'),
+        ], 'database');
     }
 
     /**

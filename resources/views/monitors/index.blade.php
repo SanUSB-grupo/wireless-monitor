@@ -9,10 +9,12 @@
 
 <div class="row">
     <div class="col-md-12">
-        <a href="<?php echo url('temperature/create'); ?>" class="btn btn-primary btn-lg">
-            <i class="fa fa-dashboard"></i>
-            New Temperature Monitor
+        @foreach($packages as $value)
+        <a href="<?php echo url("$value->path/create"); ?>" class="btn btn-primary btn-lg">
+            <i class="fa fa-{{ $value->icon }}"></i>
+            New {{ $value->description }} Monitor
         </a>
+        @endforeach
         <hr>
     </div>
 </div>

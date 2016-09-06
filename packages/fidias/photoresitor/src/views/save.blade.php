@@ -1,5 +1,36 @@
 @extends('layouts.app')
 
 @section('content')
-hello
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>{{ $title }}</h3><hr>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        {!! BootForm::open([
+            'model' => null,
+            'store' => '\Fidias\Photoresistor\Http\Controllers\PhotoresistorController@store'
+        ]) !!}
+        <div class="row">
+            <div class="col-md-12">
+                {!! BootForm::text('description') !!}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                {!! BootForm::text('min') !!}
+            </div>
+            <div class="col-md-3">
+                {!! BootForm::text('max') !!}
+            </div>
+        </div>
+
+        {!! BootForm::submit('Save') !!}
+        {!! BootForm::close() !!}
+    </div>
+</div>
+
 @endsection

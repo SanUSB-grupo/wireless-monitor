@@ -2,7 +2,8 @@
 process.env.DISABLE_NOTIFIER = true;
 
 var elixir = require('laravel-elixir');
-
+require('./gulp-custom-tasks/main.js');
+var inProduction = elixir.config.production;
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -70,5 +71,10 @@ elixir(function(mix) {
 
     mix.sass('app.scss');
 
-    mix.copy('./resources/assets/templates/**/*.mustache', './public/templates');
+    mix.copy('./resources/assets/templates/temperature/*.mustache', './public/templates/temperature');
+
+    // custom commands
+    mix.copyMustache('./packages/**/*.mustache', './public/templates');
+    mix.copyComponents('./packages/**/components/*.js',
+        './public/js/monitors/components', {inProduction: inProduction});
 });
