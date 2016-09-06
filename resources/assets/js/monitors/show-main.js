@@ -18,5 +18,9 @@ define('Chartist', [], function () {
 
 require(['jquery', 'monitors/monitor'], function ($, monitor) {
     var $type = $('input#type');
-    require(['monitors/components/' + $type.val()]);
+    require(['monitors/components/' + $type.val()], function () {
+
+    }, function (err) {
+        console.warn('Component', $type.val(), 'not found.');
+    });
 });

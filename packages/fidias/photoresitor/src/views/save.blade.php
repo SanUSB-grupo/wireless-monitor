@@ -11,8 +11,8 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         {!! BootForm::open([
-            'model' => $model,
-            'store' => 'Monitors\TemperatureController@store'
+            'model' => null,
+            'store' => '\Fidias\Photoresistor\Http\Controllers\PhotoresistorController@store'
         ]) !!}
         <div class="row">
             <div class="col-md-12">
@@ -25,9 +25,6 @@
             </div>
             <div class="col-md-3">
                 {!! BootForm::text('max') !!}
-            </div>
-            <div class="col-md-3">
-                {!! BootForm::select('unit', 'Unit', $units) !!}
             </div>
         </div>
 

@@ -6,6 +6,9 @@
   },
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-flatten": "^0.3.1",
+    "gulp-if": "^2.0.1",
+    "gulp-uglify": "^2.0.0",
     "laravel-elixir": "6.0.0-10"
   }
 }

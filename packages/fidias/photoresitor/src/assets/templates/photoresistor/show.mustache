@@ -1,0 +1,75 @@
+<!-- Mustache template -->
+<style>
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+    .limits {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .limits--item {
+        flex-grow: 1;
+    }
+
+    .limits--item h2 {
+        text-align: center;
+    }
+
+    .ct-series-a .ct-line {
+        /* Set the colour of this series line */
+        stroke: #18bc9c;
+    }
+
+    .ct-series-a .ct-point {
+        /* Colour of your points */
+        stroke: #18bc9c;
+    }
+</style>
+<div class="row">
+    <div class="col-md-4">
+        <div class="header">
+            <div>
+                <h3>
+                    {{data.description}}
+                </h3>
+            </div>
+            <div>
+                <span class="label label-primary pull-right" data-balloon="{{item.created_at}}">
+                    {{#moment}}{{item.created_at}}{{/moment}}
+                </span>
+            </div>
+        </div>
+        <hr>
+        <div align="center">
+            <input type="text" value="{{#getValue}}{{/getValue}}" data-angleArc="250"
+                data-min="{{data.min}}" data-max="{{data.max}}"
+                data-angleOffset="-125" class="input-knob" readonly="readonly"
+                style="font: bold 50px Lato" data-fgColor="{{#getFgColor}}{{/getFgColor}}"/>
+        </div>
+        <div class="limits">
+            <div class="limits--item">
+                <h2 class="text-primary">
+                    <strong>
+                        {{data.min}}
+                        <br>Min
+                    </strong>
+                </h2>
+            </div>
+            <div class="limits--item">
+                <h2 class="text-success">
+                    <strong>
+                        {{data.max}}
+                        <br>Max
+                    </strong>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7 col-md-offset-1">
+        <div class="ct-chart ct-perfect-fourth"></div>
+    </div>
+</div>

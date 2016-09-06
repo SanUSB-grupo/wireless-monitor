@@ -165,7 +165,10 @@ return [
         Watson\BootstrapForm\BootstrapFormServiceProvider::class,
 
         // JWT
-        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class
+        Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+
+        // Wireless Monitor Providers
+        Fidias\Photoresistor\Providers\PhotoresistorServiceProvider::class,
     ],
 
     /*

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Monitor;
+use App\MonitorPackage;
 use App\Measure;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -16,8 +17,12 @@ class MonitorController extends Controller
     }
 
     public function index() {
-        $list = Monitor::all();
-        return view('monitors/index', ['list' => $list->toJson()]);
+        $packages = MonitorPackage::where('enabled', true)
+                        ->orderBy('description')
+                        ->get();
+        return view('monitors/index', [
+            'packages' => $packages,
+        ]);
     }
 
     public function ajaxList(Request $request) {

@@ -2,24 +2,26 @@
 
 namespace App\Http\Controllers\Monitors;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\AbstractMonitorController;
 use App\Models\Temperature;
 use Illuminate\Http\Request;
-use App\Monitor;
-use Webpatser\Uuid\Uuid;
-use Illuminate\Support\Facades\Auth;
 
-class TemperatureController extends Controller
+class TemperatureController extends AbstractMonitorController
 {
     public function create()
     {
+        $title = 'New Temperature Monitor';
         $model = new Temperature;
         $units = [
             'celcius' => 'Celcius',
             'fahrenheit' => 'Fahrenheit',
             'kelvin' => 'Kelvin'
         ];
-        return view('monitors.temperature.save', ['model' => $model,'units' => $units]);
+        return view('monitors.temperature.save', [
+            'model' => $model,
+            'units' => $units,
+            'title' => $title,
+        ]);
     }
 
     public function store(Request $request)
@@ -33,11 +35,7 @@ class TemperatureController extends Controller
 
         $result = $request->toArray();
         $result['type'] = 'temperature';
-        Monitor::create([
-            'monitor_key' => Uuid::generate(4),
-            'data' => json_encode($result),
-            'user_id' => Auth::user()->id,
-        ]);
-        return view('monitors.index', ['result' => $result]);
+        $this->_save($result);
+        return view('monitors.index');
     }
 }

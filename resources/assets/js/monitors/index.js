@@ -9,14 +9,14 @@ $(function () {
      * @return {[type]}      [description]
      */
     function loadTemplate(type) {
-        if (templates['type']) {
-            return templates['type'];
+        if (templates[type]) {
+            return templates[type];
         }
-        return templates['type'] = $.get('/templates/temperature/index.mustache')
+        return templates[type] = $.get('/templates/' + type + '/index.mustache')
             .pipe(function (res) {
                 // compile and save to the cache
                 Mustache.parse(res)
-                return templates['type'] = res;
+                return templates[type] = res;
             });
     }
 
@@ -44,6 +44,8 @@ $(function () {
                 $.when(promise).done(function (res) {
                     var result = Mustache.render(res, element);
                     $app.append(result);
+                }).fail(function () {
+                    console.warn('Template', element.data.type, 'not found.');
                 });
             });
         }
