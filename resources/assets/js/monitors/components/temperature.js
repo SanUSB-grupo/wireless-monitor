@@ -14,6 +14,15 @@ define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
         return value;
     }
 
+    /**
+     * safe convert to integer
+     * @param {any} x
+     */
+    function ToInteger(x) {
+        x = Number(x);
+        return x < 0 ? Math.ceil(x) : Math.floor(x);
+    }
+
     var utils = {
         moment: function () {
             return function (text, render) {
@@ -21,13 +30,15 @@ define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
             };
         },
         getFgColor: function () {
-            var total = this.data.max - this.data.min;
+            var min = ToInteger(this.data.min);
+            var max = ToInteger(this.data.max);
+            var total = max - min;
             var third = total / 3.0;
-            var value = this.item.data.value;
+            var value = ToInteger(this.item.data.value);
             var color = '#3498db'; // blue
-            if (value >= this.data.min && value < (this.data.min + third)) {
+            if (value >= min && value < (min + third)) {
                 color = '#f39c12'; // yellow
-            } else if (value > (this.data.max - third) && value <= this.data.max) {
+            } else if (value > (max - third) && value <= max) {
                 color = '#e74c3c'; // red
             }
             return function (text, render) {
@@ -58,36 +69,41 @@ define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
     Temperature.prototype.render = function (items) {
         items = items || [];
         var len = items.length;
-        this.monitor.item = items[len - 1];
-        var result = model.render(this.template, this.monitor);
-        $app.html(result);
-        $(".input-knob").knob({
-            readOnly: true,
-            width: 250,
-            fontWeight: 'hack', // hack: override default font size!
-        });
+        if (len > 0) {
+            this.monitor.item = items[len - 1];
+            var result = model.render(this.template, this.monitor);
+            $app.html(result);
+            $(".input-knob").knob({
+                readOnly: true,
+                width: 250,
+                fontWeight: 'hack', // hack: override default font size!
+            });
+        }
     };
+
     Temperature.prototype.plot = function (items) {
         items = items || [];
         var labels = [];
         var serie = [];
         var len = items.length;
-        for (var i = 0; i < len; i++) {
-            var item = items[i];
-            labels.push(item.created_at);
-            var value = notHigherNotLower(
-                item.data.value, this.monitor.data.min, this.monitor.data.max);
-            serie.push(value);
-        }
+        if (len > 0) {
+            for (var i = 0; i < len; i++) {
+                var item = items[i];
+                labels.push(item.created_at);
+                var value = notHigherNotLower(
+                    item.data.value, this.monitor.data.min, this.monitor.data.max);
+                serie.push(value);
+            }
 
-        this.chart = new Chartist.Line('.ct-chart', {
-            labels: labels,
-            series: [serie]
-        }, this.chartOptions);
+            this.chart = new Chartist.Line('.ct-chart', {
+                labels: labels,
+                series: [serie]
+            }, this.chartOptions);
+        }
     };
 
     $.when(
-        $.get('/mustache/monitor/temperature.mustache'),
+        $.get('/templates/temperature/show.mustache'),
         model.fetch(id, onCompleteOnce),
         model.measures(id, onCompleteOnce)
     ).done(function (resp1, resp2, resp3) {
@@ -97,6 +113,11 @@ define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
         var t = new Temperature(template, monitor);
         t.render(items);
         t.plot(items);
+        // if there's no data, send user to setup tab
+        if (!items.length) {
+            $app.html('');
+            $('.nav-tabs a#tab-setup').tab('show');
+        }
         onComplete(t);
     });
 
@@ -115,4 +136,15 @@ define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
             });
         }, TIMEOUT);
     }
+
+    // hack: prevent the chart to be malformed
+    // see <https://github.com/gionkunz/chartist-js/issues/169>
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        if ($(e.target).attr('href') === '#view') {
+            var chart = document.querySelector('.ct-chart');
+            if (chart) {
+                chart.__chartist__.update();
+            }
+        }
+    });
 });

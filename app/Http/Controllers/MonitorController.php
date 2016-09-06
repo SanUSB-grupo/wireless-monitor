@@ -20,11 +20,13 @@ class MonitorController extends Controller
         return view('monitors/index', ['list' => $list->toJson()]);
     }
 
-    public function ajaxList() {
+    public function ajaxList(Request $request) {
         $list = Monitor::where('user_id', Auth::user()->id)
             ->orderBy('updated_at', 'desc')
-            ->get();
-        return response()->json(['ok' => true, 'list' => $list]);
+            ->get()
+            ->toArray();
+        $items = Monitor::hydrate($list);
+        return response()->json(['ok' => true, 'list' => $items]);
     }
 
     public function show($id) {

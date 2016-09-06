@@ -1,13 +1,24 @@
 
 $(function () {
     var $app = $('div#root-app');
+    var templates = {};
 
-    var templates = {
-        temperature: $('#template-temperature').html()
-    };
-    $.each(templates, function (index, value) {
-        Mustache.parse(value);
-    });
+    /**
+     * load template from cache or URL based on the type
+     * @param  {[type]} type [description]
+     * @return {[type]}      [description]
+     */
+    function loadTemplate(type) {
+        if (templates['type']) {
+            return templates['type'];
+        }
+        return templates['type'] = $.get('/templates/temperature/index.mustache')
+            .pipe(function (res) {
+                // compile and save to the cache
+                Mustache.parse(res)
+                return templates['type'] = res;
+            });
+    }
 
     var monitors = {
         fetch: function (onSuccess, onComplete) {
@@ -28,21 +39,19 @@ $(function () {
         },
         render: function (list) {
             list = list || [];
-            var len = list.length;
-            var result = '';
-            for (var i = 0; i < len; i++) {
-                var element = list[i];
-                element.data = JSON.parse(element.data);
-                var template = templates[element.data.type];
-                result += Mustache.render(template, element);
-            }
-            return result;
+            list.forEach(function (element, index) {
+                var promise = loadTemplate(element.data.type);
+                $.when(promise).done(function (res) {
+                    var result = Mustache.render(res, element);
+                    $app.append(result);
+                });
+            });
         }
     };
 
     monitors.fetch(function (list) {
+        $app.html(''); // clear loading text
         var result = monitors.render(list);
-        $app.html(result);
     }, function () {
         console.log('loaded.');
     });
