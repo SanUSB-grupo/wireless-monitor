@@ -20,10 +20,13 @@
 <div class="row">
     <div class="col-md-12">
         <h4>Monitors</h4><hr>
-        <div id="root-app"></div>
+        <div id="root-app">
+            {{-- data comes from ajax --}}
+            <p class="text-center">
+                Loading ...
+            </p>
+        </div>
     </div>
 </div>
-
-@include('monitors.index.components.temperature')
 
 @endsection

@@ -69,4 +69,6 @@ elixir(function(mix) {
     ]);
 
     mix.sass('app.scss');
+
+    mix.copy('./resources/assets/templates/**/*.mustache', './public/templates');
 });

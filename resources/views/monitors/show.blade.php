@@ -19,7 +19,10 @@
     <div class="col-md-12">
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation">
-                <a href="#setup" aria-controls="setup" role="tab" data-toggle="tab">Setup</a>
+                <a href="#setup" aria-controls="setup" role="tab"
+                    data-toggle="tab" id="tab-setup">
+                    Setup
+                </a>
             </li>
             <li role="presentation" class="active">
                 <a href="#view" aria-controls="view" role="tab" data-toggle="tab">View Data</a>

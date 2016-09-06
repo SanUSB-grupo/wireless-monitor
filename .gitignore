@@ -11,3 +11,4 @@ composer.phar
 /public/js
 /public/css
 /public/vendor
+/public/templates
