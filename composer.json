@@ -25,7 +25,8 @@
             "database"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Fidias\\Photoresistor\\": "packages/fidias/photoresitor/src/"
         }
     },
     "autoload-dev": {

@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Monitors;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\LoggedInController;
 use App\Models\Temperature;
 use Illuminate\Http\Request;
 use App\Monitor;
 use Webpatser\Uuid\Uuid;
 use Illuminate\Support\Facades\Auth;
 
-class TemperatureController extends Controller
+class TemperatureController extends LoggedInController
 {
     public function create()
     {

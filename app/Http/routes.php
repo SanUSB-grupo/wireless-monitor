@@ -24,6 +24,7 @@ Route::get('/monitor/ajax-get', 'MonitorController@ajaxGet');
 Route::get('/monitor/ajax-get-measures', 'MonitorController@ajaxGetMeasures');
 Route::get('/monitor/{id}', 'MonitorController@show');
 Route::resource('temperature', 'Monitors\TemperatureController');
+Route::resource('photoresistor', '\Fidias\Photoresistor\Http\Controllers\PhotoresistorController');
 
 Route::group(['prefix' => 'api'], function()
 {
