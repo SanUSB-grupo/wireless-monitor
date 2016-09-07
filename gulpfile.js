@@ -4,6 +4,13 @@ process.env.DISABLE_NOTIFIER = true;
 var elixir = require('laravel-elixir');
 require('./gulp-custom-tasks/main.js');
 var inProduction = elixir.config.production;
+
+var replace = require('gulp-replace-task');
+var minimist = require('minimist');
+var gutil = require('gulp-util');
+var gitUserInfo = require('git-user-info');
+var rename = require('gulp-regex-rename');
+
 /*
  |--------------------------------------------------------------------------
  | Elixir Asset Management
@@ -77,4 +84,71 @@ elixir(function(mix) {
     mix.copyMustache('./packages/**/*.mustache', './public/templates');
     mix.copyComponents('./packages/**/components/*.js',
         './public/js/monitors/components', {inProduction: inProduction});
+});
+
+var options = minimist(process.argv.slice(2));
+
+function capitalize(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+gulp.task('create-plugin', function () {
+    if (!options.vendor || !options.plugin) {
+        gutil.log(
+            gutil.colors.red.bold(
+                '\n\nUsage: gulp create-plugin --vendor <vendor> --plugin <plugin>\n'
+            ),
+            gutil.colors.bold(
+                '\nExample:\n\tgulp create-plugin --vendor sanusb --plugin temperature'
+            )
+        );
+        return;
+    }
+    var git = gitUserInfo();
+    var plugin = options.plugin.toLowerCase();
+    var vendor = options.vendor.toLowerCase();
+
+    var files = [
+        './package-template/composer.json',
+        './package-template/src/migrations/insert_plugin_monitor.php',
+        './package-template/src/Http/Controllers/PluginController.php',
+        './package-template/src/assets/components/plugin.js',
+        './package-template/src/storage/json-schema/plugin.json',
+        './package-template/src/assets/templates/plugin/index.mustache',
+        './package-template/src/assets/templates/plugin/show.mustache',
+        './package-template/src/Providers/PluginServiceProvider.php',
+        './package-template/src/views/save.blade.php',
+    ];
+    gulp.src(files, {base: './package-template'})
+        .pipe(rename(/Plugin/, capitalize(plugin)).on('error', gutil.log))
+        .pipe(rename(/plugin/, plugin).on('error', gutil.log))
+        .pipe(replace({
+            patterns: [
+                {
+                    match: 'vendor',
+                    replacement: vendor
+                },
+                {
+                    match: 'Vendor',
+                    replacement: capitalize(vendor)
+                },
+                {
+                    match: 'plugin',
+                    replacement: plugin
+                },
+                {
+                    match: 'Plugin',
+                    replacement: capitalize(plugin)
+                },
+                {
+                    match: 'git_username',
+                    replacement: git.name
+                },
+                {
+                    match: 'git_email',
+                    replacement: git.email
+                }
+            ]
+        }))
+        .pipe(gulp.dest('./packages/' + vendor + '/' + plugin));
 });

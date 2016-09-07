@@ -1,13 +1,13 @@
 {
-    "name": "fidias/photoresistor",
-    "description": "Photoresistor Monitor",
+    "name": "@@vendor/@@plugin",
+    "description": "@@Plugin Monitor",
     "keywords": ["laravel", "bundle"],
     "type": "laravel-bundle",
     "license": "GPL-3.0",
     "authors": [
         {
-            "name": "Átila Camurça",
-            "email": "camurca.home@gmail.com"
+            "name": "@@git_username",
+            "email": "@@git_email"
         }
     ],
     "minimum-stability": "dev",
@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Fidias\\Photoresistor\\": "src/"
+            "@@Vendor\\@@Plugin\\": "src/"
         }
     }
 }

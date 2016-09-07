@@ -4,7 +4,9 @@ Aplicativo web para receber e mostrar dados vindos de equipamentos IOT.
 
 Web app to receive and show data that comes from IOT devices.
 
-This is a work in progress (WIP).
+## Documentation
+
+<https://sanusb-grupo.github.io/wireless-monitor/>
 
 ## Getting Started
 

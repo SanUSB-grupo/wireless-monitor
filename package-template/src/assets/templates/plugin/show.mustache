@@ -1,0 +1,20 @@
+<!-- Mustache template -->
+<div class="row">
+    <div class="col-md-4">
+        <div class="header">
+            <div>
+                <h3>
+                    {{data.description}}
+                </h3>
+            </div>
+            <div>
+                <span class="label label-primary pull-right" data-balloon="{{item.created_at}}">
+                    {{#moment}}{{item.created_at}}{{/moment}}
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-7 col-md-offset-1">
+        
+    </div>
+</div>
