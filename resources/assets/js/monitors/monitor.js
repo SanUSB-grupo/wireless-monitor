@@ -46,14 +46,21 @@ define(['jquery'], function ($) {
         render: function (template, monitor) {
             return Mustache.render(template, monitor);
         },
-        measures: function (id) {
+        measures: function (id, limit, order, onComplete) {
             return $.ajax({
                 url: '/monitor/ajax-get-measures',
                 data: {
-                    id: id
+                    id: id,
+                    limit: limit,
+                    order: order
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     console.log(textStatus, errorThrown);
+                },
+                complete: function () {
+                    if (onComplete) {
+                        onComplete();
+                    }
                 }
             });
         }

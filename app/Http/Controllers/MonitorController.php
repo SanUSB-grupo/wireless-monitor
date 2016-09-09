@@ -8,6 +8,7 @@ use App\Measure;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Storage;
 
 class MonitorController extends Controller
 {
@@ -42,12 +43,21 @@ class MonitorController extends Controller
   \"api_key\": \"{$user->api_key}\",
   \"monitor_key\": \"{$monitor->monitor_key}\"
 }";
-        $send_json = "data={\"value\": 56.98}";
+        $example_send = "data={\"value\": 56.98}";
+        $json_schema_file = "json-schema/{$monitor->data['type']}-example.json";
+        if (Storage::exists($json_schema_file)) {
+            $example_send = Storage::get($json_schema_file);
+        }
+
+        $login_cmd = $this->parseToLoginCmd($user->api_key, $monitor->monitor_key);
+        $send_cmd = $this->parseToSendCmd($example_send);
 
         return view('monitors.show', [
             'monitor' => $monitor,
             'auth_json' => $auth_json,
-            'send_json' => $send_json,
+            'example_send' => $example_send,
+            'login_cmd' => $login_cmd,
+            'send_cmd' => $send_cmd,
         ]);
     }
 
@@ -61,6 +71,8 @@ class MonitorController extends Controller
 
     public function ajaxGetMeasures(Request $request) {
         $id = $request->input('id');
+        $limit = (int) $request->input('limit', 30);
+        $order = $request->input('order', 'asc');
         $user = Auth::user();
         $list = DB::table('measures')
                     ->join('monitors', 'measures.monitor_id', '=', 'monitors.id')
@@ -70,8 +82,8 @@ class MonitorController extends Controller
                         ['monitors.id', '=', $id],
                         ['users.id', '=', $user->id]
                     ])
-                    ->orderBy('measures.created_at', 'asc')
-                    ->take(30)
+                    ->orderBy('measures.created_at', $order)
+                    ->take($limit)
                     ->get();
         $items = Measure::hydrate($list);
 
@@ -87,5 +99,15 @@ class MonitorController extends Controller
                         ['users.id', '=', $user->id]
                     ])->get();
         return Monitor::hydrate($monitor)[0];
+    }
+
+    private function parseToLoginCmd($api_key, $monitor_key) {
+        return "curl -i -X POST -F 'api_key={$api_key}' -F 'monitor_key={$monitor_key}'";
+    }
+
+    private function parseToSendCmd($example_send) {
+        $output = str_replace(array(" ", "\r", "\n", "\r\n"), "", $example_send);
+        return "curl -i -X POST -H 'Content-Type: application/json' "
+            . "-H 'Authorization: Bearer <TOKEN>' -d '{\"data\":{$output}}'";
     }
 }

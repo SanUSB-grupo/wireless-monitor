@@ -121,7 +121,7 @@ Além disso é necessário informar o Provider em `config/app.php`, na seção `
 Ao final temos recarregar as configurações do composer, executando:
 
 ~~~
-php artisan dump-autoload -o
+php composer.phar dump-autoload -o
 php artisan vendor:publish
 php artisan migrate
 ~~~

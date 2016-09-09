@@ -24,6 +24,6 @@ class PhotoresistorController extends AbstractMonitorController
         $result = $request->toArray();
         $result['type'] = 'photoresistor';
         $this->_save($result);
-        return view('monitors.index');
+        return redirect('/monitor');
     }
 }

@@ -24,8 +24,17 @@
                     Setup
                 </a>
             </li>
+            <li role="presentation">
+                <a href="#test" aria-controls="view" role="tab"
+                    data-toggle="tab">
+                    Test
+                </a>
+            </li>
             <li role="presentation" class="active">
-                <a href="#view" aria-controls="view" role="tab" data-toggle="tab">View Data</a>
+                <a href="#view" aria-controls="view" role="tab"
+                    data-toggle="tab">
+                    View Data
+                </a>
             </li>
         </ul>
     </div>
@@ -38,7 +47,10 @@
 
 <div class="tab-content">
     <div role="tabpanel" class="tab-pane" id="setup">
-        @include('monitors.show.setup', ['auth_json' => $auth_json, 'send_json' => $send_json])
+        @include('monitors.show.setup', ['auth_json' => $auth_json, 'example_send' => $example_send])
+    </div>
+    <div role="tabpanel" class="tab-pane" id="test">
+        @include('monitors.show.test', ['login_cmd' => $login_cmd, 'send_cmd' => $send_cmd])
     </div>
     <div role="tabpanel" class="tab-pane active" id="view">
         @include('monitors.show.view')

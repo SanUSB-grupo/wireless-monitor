@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class InsertPhotoresistorMonitor extends Migration
+class InsertBlinkledsMonitor extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class InsertPhotoresistorMonitor extends Migration
     public function up()
     {
         DB::table('monitor_packages')->insert([
-            'path' => 'photoresistor',
-            'description' => 'Photoresistor',
-            'icon' => 'fire',
+            'path' => 'blinkleds',
+            'description' => 'Blink LEDs',
+            'icon' => 'lightbulb-o',
             'enabled' => true,
             'created_at' => 'now()',
             'updated_at' => 'now()',
@@ -30,7 +30,7 @@ class InsertPhotoresistorMonitor extends Migration
     public function down()
     {
         DB::table('monitor_packages')
-            ->where('path', '=', 'photoresistor')
+            ->where('path', '=', 'blinkleds')
             ->delete();
     }
 }

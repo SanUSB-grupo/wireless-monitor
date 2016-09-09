@@ -1,0 +1,6 @@
+{
+  "leds": [
+    {"id": "led-red", "status": "on"},
+    {"id": "led-green", "status": "off"}
+  ]
+}

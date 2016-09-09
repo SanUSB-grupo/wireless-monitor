@@ -22,6 +22,10 @@
             .fa-btn {
                 margin-right: 6px;
             }
+
+            .container__content {
+                margin-bottom: 150px;
+            }
         </style>
     </head>
     <body id="app-layout">
@@ -73,7 +77,7 @@
             </div>
         </nav>
 
-        <div class="container">
+        <div class="container container__content">
             @yield('content')
         </div>
 

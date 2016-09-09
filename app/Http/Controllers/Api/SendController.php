@@ -44,7 +44,12 @@ class SendController extends Controller
         }
         $contents = Storage::get($json_schema_file);
         $schema = json_decode($contents);
-        $data = json_decode($request->input('data'));
+        if (is_string($request->input('data'))) {
+            $data = json_decode($request->input('data'));
+        } else {
+            $aux = json_encode($request->input('data'));
+            $data = json_decode($aux);
+        }
         $validator = new Validator($data, $schema);
         if ($validator->passes()) {
             // save data
@@ -52,7 +57,10 @@ class SendController extends Controller
                 'monitor_id' => $monitor->id,
                 'data' => $data,
             ]);
-            return response()->json(['ok?' => true], 200);
+            return response()->json([
+                'ok?' => true,
+                'data' => $data
+            ], 200);
         }
         $errors = [];
         foreach ($validator->errors() as $e) {
@@ -60,7 +68,8 @@ class SendController extends Controller
         }
         return response()->json([
             'ok?' => false,
-            'errors' => $errors
+            'errors' => $errors,
+            'data' => $data
         ]);
     }
 }
