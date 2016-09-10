@@ -22,26 +22,32 @@ A estrutura de diretórios ficará da seguinte forma:
 ~~~
 packages/sanusb/temperature/
 ├── composer.json
-└── src
-    ├── assets
-    │   ├── components
-    │   │   └── temperature.js
-    │   └── templates
-    │       └── temperature
-    │           ├── index.mustache
-    │           └── show.mustache
-    ├── Http
-    │   └── Controllers
-    │       └── TemperatureController.php
-    ├── migrations
-    │   └── insert_temperature_monitor.php
-    ├── Providers
-    │   └── TemperatureServiceProvider.php
-    ├── storage
-    │   └── json-schema
-    │       └── temperature.json
-    └── views
-        └── save.blade.php
+├── phpunit.xml
+├── src
+│   ├── assets
+│   │   ├── components
+│   │   │   └── temperature.js
+│   │   └── templates
+│   │       └── temperature
+│   │           ├── index.mustache
+│   │           └── show.mustache
+│   ├── Http
+│   │   └── Controllers
+│   │       └── TemperatureController.php
+│   ├── migrations
+│   │   └── insert_temperature_monitor.php
+│   ├── Providers
+│   │   └── TemperatureServiceProvider.php
+│   ├── storage
+│   │   └── json-schema
+│   │       └── temperature.json
+│   └── views
+│       └── save.blade.php
+└── tests
+    ├── controllers
+    │   └── TemperatureControllerTest.php
+    └── migrations
+        └── DatabaseTest.php
 ~~~
 
 ### Arquivos
@@ -126,7 +132,7 @@ php artisan vendor:publish
 php artisan migrate
 ~~~
 
-## Desenvolver e Testar plugin
+## Desenvolver o plugin
 
 Inicie o servidor php:
 
@@ -136,3 +142,12 @@ Em outro terminal inicie o `gulp` para verificar e atualizar as alterações
 feitas em arquivos `.js`, `.css`, `.mustache`:
 
 `gulp watch`
+
+## Testar o plugin
+
+Os testes são feitos usando a ferramenta [PHPUnit](https://phpunit.de/).
+Para executar:
+
+`./vendor/bin/phpunit packages/vendor/plugin/`
+
+Substituindo `vendor` e `plugin` para seus respectivos valores.

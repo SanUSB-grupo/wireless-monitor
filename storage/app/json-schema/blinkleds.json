@@ -23,10 +23,10 @@
                     "status"
                 ]
             },
-            "minItems": 1,
-        },
+            "minItems": 1
+        }
     },
     "required": [
-        "leds",
+        "leds"
     ]
 }
