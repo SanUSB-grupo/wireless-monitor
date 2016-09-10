@@ -8,9 +8,13 @@
         </div>
         <div class="jumbotron">
             <h2 class="text-center">
-                Welcome to Wireless Monitor!
+                You are now connected!
                 <br><br>
-                Connect your IOT Devices to the cloud.
+                Click to create your first monitor
+                <hr>
+                <a href="{{ url('/monitor') }}" class="btn btn-primary">
+                    Monitor
+                </a>
             </h2>
         </div>
     </div>

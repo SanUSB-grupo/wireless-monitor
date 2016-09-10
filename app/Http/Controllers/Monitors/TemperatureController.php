@@ -36,6 +36,6 @@ class TemperatureController extends AbstractMonitorController
         $result = $request->toArray();
         $result['type'] = 'temperature';
         $this->_save($result);
-        return view('monitors.index');
+        return redirect('/monitor');
     }
 }

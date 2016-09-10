@@ -118,6 +118,9 @@ gulp.task('create-plugin', function () {
         './package-template/src/assets/templates/plugin/show.mustache',
         './package-template/src/Providers/PluginServiceProvider.php',
         './package-template/src/views/save.blade.php',
+        './package-template/phpunit.xml',
+        './package-template/tests/migrations/DatabaseTest.php',
+        './package-template/tests/controllers/PluginControllerTest.php',
     ];
     gulp.src(files, {base: './package-template'})
         .pipe(rename(/Plugin/, capitalize(plugin)).on('error', gutil.log))

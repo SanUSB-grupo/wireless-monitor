@@ -1,0 +1,165 @@
+<!-- Mustache template -->
+<style>
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+    .led-container {
+        display: flex;
+        justify-content: space-around;
+        align-content: center;
+    }
+
+    .led-container__led-item {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .led {
+        border-top-left-radius: 50%;
+        border-top-right-radius: 50%;
+        background-color: #ecf0f1;
+        border: 3px #95a5a6 solid;
+    }
+
+    .led--md {
+        width: 100px;
+        height: 100px;
+    }
+
+    .led--sm {
+        width: 50px;
+        height: 50px;
+    }
+
+    .timeline {
+        display: block;
+    }
+
+    .line {
+        width: 100%;
+        margin: 50px 0;
+        height: 5px;
+        background: #fff;
+    }
+
+    @media (min-width: 1200px) {
+        .line {
+            background: #95a5a6;
+        }
+
+        .bottom-element:before {
+            content: " ";
+            height: 20px;
+            width: 20px;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 50%;
+            background: #2c3e50;
+            color: white;
+            position: absolute;
+            left: 0;
+            top: -63px;
+        }
+
+        .bottom-element:after {
+            content: "";
+            height: 50px;
+            width: 2px;
+            background: #18bc9c;
+            position: absolute;
+            left: 10px;
+            top: -40px;
+        }
+    }
+
+    .timeline__item-bottom {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        align-content: space-between;
+        padding-left: 10px;
+    }
+
+    .timeline__item-bottom .bottom-element {
+        flex-grow: 1;
+        padding: 0 15px;
+        position: relative;
+    }
+</style>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="header">
+            <h3>
+                {{data.description}}
+            </h3>
+            <span class="label label-primary pull-right" data-balloon="{{created_at}}">
+                {{#moment}}{{created_at}}{{/moment}}
+            </span>
+        </div>
+        <hr>
+        <div class="led-container">
+            {{#currentLeds}}
+                <div class="led-container__led-item">
+                    <div class="led led--md"
+                        style="background-color: {{#on}}{{color}}{{/on}}">&nbsp;</div>
+                    <div>{{id}}</div>
+                </div>
+            {{/currentLeds}}
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <hr>
+        <div class="header">
+            <h3>Timeline </h3>
+            <span class="text-muted">Showing last {{LIMIT}}</span>
+        </div>
+        <div class="timeline">
+            <div class="line"></div>
+            <div class="timeline__item-bottom">
+                {{#timeline}}
+                    <div class="bottom-element">
+                        <a href="#" data-id="{{id}}">
+                            <span class="label label-primary"
+                                data-balloon="{{created_at}}">
+                                {{#moment}}{{created_at}}{{/moment}}
+                            </span>
+                        </a>
+                    </div>
+                {{/timeline}}
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                {{#currentTimelineItem}}
+                <div class="header">
+                    <h4>{{created_at}}</h4>
+                    <button type="button" class="btn btn-link btn-close" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <hr>
+                <div class="led-container">
+                    {{#leds}}
+                    <div class="led-container__led-item">
+                        <div class="led led--sm"
+                            style="background-color: {{#on}}{{color}}{{/on}}">&nbsp;</div>
+                        <div>{{id}}</div>
+                    </div>
+                    {{/leds}}
+                </div>
+                {{/currentTimelineItem}}
+            </div>
+        </div>
+    </div>
+</div>

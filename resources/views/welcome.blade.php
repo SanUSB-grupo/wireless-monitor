@@ -5,10 +5,14 @@
     <div class="col-md-10 col-md-offset-1">
         <div class="panel panel-default">
             <div class="panel-heading">Welcome</div>
+        </div>
 
-            <div class="panel-body">
-                Your Application's Landing Page.
-            </div>
+        <div class="jumbotron">
+            <h2 class="text-center">
+                Welcome to Wireless Monitor!
+                <br><br>
+                Connect your IOT Devices to the cloud.
+            </h2>
         </div>
     </div>
 </div>

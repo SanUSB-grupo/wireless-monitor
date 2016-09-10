@@ -71,7 +71,10 @@
                     to the endpoint <code>/api/send</code> using your <code>token</code>
                     in the header, <code>Authorization: Bearer &lt;token&gt;</code>.
                 </p>
-                <pre>{{ $send_json }}</pre>
+                <p>
+                    Example of the <code>data</code> parameter:
+                </p>
+                <pre>{{ $example_send }}</pre>
                 <p>
                     To view the data sent click on the button bellow.
                 </p>

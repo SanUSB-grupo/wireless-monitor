@@ -22,6 +22,6 @@ class @@PluginController extends AbstractMonitorController
         $result = $request->toArray();
         $result['type'] = '@@plugin';
         $this->_save($result);
-        return view('monitors.index');
+        return redirect('/monitor');
     }
 }

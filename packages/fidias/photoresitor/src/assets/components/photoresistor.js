@@ -4,6 +4,8 @@ define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
 
     var id = $('input#id').val();
     var $app = $('div#monitor-view');
+    var LIMIT = 30;
+    var ORDER = 'asc';
 
     function notHigherNotLower(value, min, max) {
         if (value < min) {
@@ -105,7 +107,7 @@ define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
     $.when(
         $.get('/templates/photoresistor/show.mustache'),
         model.fetch(id, onCompleteOnce),
-        model.measures(id, onCompleteOnce)
+        model.measures(id, LIMIT, ORDER, onCompleteOnce)
     ).done(function (resp1, resp2, resp3) {
         var template = resp1[0];
         var monitor = resp2[0].monitor;
@@ -127,7 +129,7 @@ define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
 
     function onComplete(photoresistor) {
         setTimeout(function () {
-            var promise = model.measures(id);
+            var promise = model.measures(id, LIMIT, ORDER);
             promise.done(function (resp) {
                 var items = resp.items;
                 photoresistor.render(items);
