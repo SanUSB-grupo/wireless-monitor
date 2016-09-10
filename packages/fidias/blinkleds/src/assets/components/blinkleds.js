@@ -37,10 +37,9 @@ define(['jquery', 'moment', 'monitors/timeout', 'monitors/monitor'],
 
         if (itemsLength > 0) {
             // update date
-            var lastItem = items.length - 1;
-            this.monitor.created_at = items[lastItem].created_at;
+            this.monitor.created_at = items[0].created_at;
 
-            var item = items[lastItem];
+            var item = items[0];
             var currentLeds = this.renderItem(item);
             this.setCurrentLeds(currentLeds);
         }
