@@ -20,16 +20,6 @@ class CreateMonitorPackages extends Migration
             $table->boolean('enabled');
             $table->timestamps();
         });
-
-        // TODO: move to migration packages!
-        DB::table('monitor_packages')->insert([
-            'path' => 'temperature',
-            'description' => 'Temperature',
-            'icon' => 'dashboard',
-            'enabled' => true,
-            'created_at' => 'now()',
-            'updated_at' => 'now()',
-        ]);
     }
 
     /**
@@ -39,10 +29,6 @@ class CreateMonitorPackages extends Migration
      */
     public function down()
     {
-        DB::table('monitor_packages')
-            ->where('path', '=', 'temperature')
-            ->delete();
-
         Schema::drop('monitor_packages');
     }
 }

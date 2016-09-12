@@ -42,10 +42,6 @@ elixir(function(mix) {
     ], 'public/js/monitors/timeout.js');
 
     mix.scripts([
-        'monitors/components/temperature.js'
-    ], 'public/js/monitors/components/temperature.js');
-
-    mix.scripts([
         'jquery/dist/jquery.js',
         'bootstrap/dist/js/bootstrap.js',
         'mustache.js/mustache.js',
@@ -72,13 +68,10 @@ elixir(function(mix) {
         'public/js/require.js',
         'public/js/monitors/show-main.js',
         'public/js/monitors/monitor.js',
-        'public/js/monitors/components/temperature.js',
         'public/js/monitors/timeout.js',
     ]);
 
     mix.sass('app.scss');
-
-    mix.copy('./resources/assets/templates/temperature/*.mustache', './public/templates/temperature');
 
     // custom commands
     mix.copyMustache('./packages/**/*.mustache', './public/templates');
@@ -114,6 +107,7 @@ gulp.task('create-plugin', function () {
         './package-template/src/Http/Controllers/PluginController.php',
         './package-template/src/assets/components/plugin.js',
         './package-template/src/storage/json-schema/plugin.json',
+        './package-template/src/storage/json-schema/plugin-example.json',
         './package-template/src/assets/templates/plugin/index.mustache',
         './package-template/src/assets/templates/plugin/show.mustache',
         './package-template/src/Providers/PluginServiceProvider.php',

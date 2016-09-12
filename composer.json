@@ -27,7 +27,8 @@
         "psr-4": {
             "App\\": "app/",
             "Fidias\\Photoresistor\\": "packages/fidias/photoresitor/src/",
-            "Fidias\\Blinkleds\\": "packages/fidias/blinkleds/src/"
+            "Fidias\\Blinkleds\\": "packages/fidias/blinkleds/src/",
+            "Fidias\\Temperature\\": "packages/fidias/temperature/src/"
         }
     },
     "autoload-dev": {

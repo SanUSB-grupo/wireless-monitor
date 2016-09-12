@@ -1,0 +1,22 @@
+{
+    "name": "fidias/temperature",
+    "description": "Temperature Monitor",
+    "keywords": ["laravel", "bundle"],
+    "type": "laravel-bundle",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Átila Camurça",
+            "email": "camurca.home@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "illuminate/support": "~5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fidias\\Temperature\\": "src/"
+        }
+    }
+}
