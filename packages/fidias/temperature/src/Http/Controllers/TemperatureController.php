@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Monitors;
+namespace Fidias\Temperature\Http\Controllers;
 
 use App\Http\Controllers\AbstractMonitorController;
-use App\Models\Temperature;
 use Illuminate\Http\Request;
 
 class TemperatureController extends AbstractMonitorController
@@ -11,13 +10,13 @@ class TemperatureController extends AbstractMonitorController
     public function create()
     {
         $title = 'New Temperature Monitor';
-        $model = new Temperature;
+        $model = null;
         $units = [
             'celcius' => 'Celcius',
             'fahrenheit' => 'Fahrenheit',
             'kelvin' => 'Kelvin'
         ];
-        return view('monitors.temperature.save', [
+        return view('temperature::save', [
             'model' => $model,
             'units' => $units,
             'title' => $title,

@@ -12,7 +12,7 @@
     <div class="col-md-8 col-md-offset-2">
         {!! BootForm::open([
             'model' => $model,
-            'store' => 'Monitors\TemperatureController@store'
+            'store' => '\Fidias\Temperature\Http\Controllers\TemperatureController@store'
         ]) !!}
         <div class="row">
             <div class="col-md-12">

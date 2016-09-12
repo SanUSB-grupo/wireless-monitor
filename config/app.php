@@ -170,6 +170,7 @@ return [
         // Wireless Monitor Providers
         Fidias\Photoresistor\Providers\PhotoresistorServiceProvider::class,
         Fidias\Blinkleds\Providers\BlinkledsServiceProvider::class,
+        Fidias\Temperature\Providers\TemperatureServiceProvider::class,
     ],
 
     /*
