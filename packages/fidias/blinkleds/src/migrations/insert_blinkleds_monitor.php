@@ -15,7 +15,7 @@ class InsertBlinkledsMonitor extends Migration
         DB::table('monitor_packages')->insert([
             'path' => 'blinkleds',
             'description' => 'Blink LEDs',
-            'icon' => 'lightbulb-o',
+            'icon' => 'led',
             'enabled' => true,
             'created_at' => 'now()',
             'updated_at' => 'now()',

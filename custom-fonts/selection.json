@@ -1,0 +1,206 @@
+{
+  "IcoMoonType": "selection",
+  "icons": [
+    {
+      "icon": {
+        "paths": [
+          "M517.625 36.125c-118.099-0.213-237.218 22.861-357.375 70v708.625h108v21.625c0 13.677-25.206 34.194-38.625 46-33.032 28.742-67.375 58.63-67.375 96.5v52.25h69.5v-39c0-16.677 29.238-44.867 43.625-57.125 32.161-28.065 62.625-54.464 62.625-88.625v-31.625h137.875v216.375h77.125v-216.375h138.25v31.625c0 34.161 30.589 60.56 62.75 88.625 14.387 12.258 43.5 40.448 43.5 57.125v39h69.5v-52.25c0-37.87-34.343-67.758-67.375-96.5-13.419-11.806-38.625-32.323-38.625-46v-21.625h108v-708.625c-116.096-46.285-233.276-69.787-351.375-70zM521 316.75c43.216 0 80.574 24.404 99.25 60.25-11.828-4.249-24.584-6.5-37.875-6.5-61.856 0-112 50.144-112 112 0 18.633 4.576 36.168 12.625 51.625-43.213-15.53-74-56.815-74-105.375 0-61.856 50.144-112 112-112z"
+        ],
+        "attrs": [
+          {
+            "fill": "rgb(68, 68, 79)"
+          }
+        ],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "grid": 0,
+        "tags": [
+          "temperature"
+        ],
+        "colorPermutations": {
+          "255255255168686816868791": [
+            {
+              "f": 1
+            }
+          ]
+        }
+      },
+      "attrs": [
+        {
+          "fill": "rgb(68, 68, 79)"
+        }
+      ],
+      "properties": {
+        "order": 22,
+        "id": 6,
+        "name": "temperature",
+        "prevSize": 64,
+        "code": 59648
+      },
+      "setIdx": 0,
+      "setId": 2,
+      "iconIdx": 0
+    },
+    {
+      "icon": {
+        "paths": [
+          "M52.25 236.875c-25.013 44.097-39.5 94.982-39.5 149.5 0 167.761 135.114 302.875 302.875 302.875h389.125c93.631 0 176.913-42.155 232.375-108.5h-569.5v-231.875h215.875v-112h-531.25zM179.875 322.25c35.476 0 64.125 28.649 64.125 64.125s-28.649 64.25-64.125 64.25c-35.476 0-64.25-28.774-64.25-64.25s28.774-64.125 64.25-64.125z",
+          "M315.625 83.625c-86.183 0-163.581 35.84-218.625 93.25h546.5v232h-215.875v111.875h548.375c20.003-40.48 31.5-86.004 31.5-134.375 0-167.761-134.989-302.75-302.75-302.75h-389.125zM847.875 322.25c35.476 0 64.25 28.649 64.25 64.125s-28.774 64.25-64.25 64.25c-35.476 0-64.25-28.774-64.25-64.25s28.774-64.125 64.25-64.125z",
+          "M689.527 646.72h94.092v293.674h-94.092v-293.674z",
+          "M244.052 646.72h94.092v293.674h-94.092v-293.674z"
+        ],
+        "attrs": [
+          {
+            "fill": "rgb(68, 68, 79)"
+          },
+          {
+            "fill": "rgb(68, 68, 79)"
+          },
+          {
+            "fill": "rgb(68, 68, 79)"
+          },
+          {
+            "fill": "rgb(68, 68, 79)"
+          }
+        ],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "grid": 0,
+        "tags": [
+          "photoresistor"
+        ],
+        "colorPermutations": {
+          "255255255168686816868791": [
+            {
+              "f": 1
+            },
+            {
+              "f": 1
+            },
+            {
+              "f": 1
+            },
+            {
+              "f": 1
+            }
+          ]
+        }
+      },
+      "attrs": [
+        {
+          "fill": "rgb(68, 68, 79)"
+        },
+        {
+          "fill": "rgb(68, 68, 79)"
+        },
+        {
+          "fill": "rgb(68, 68, 79)"
+        },
+        {
+          "fill": "rgb(68, 68, 79)"
+        }
+      ],
+      "properties": {
+        "order": 23,
+        "id": 5,
+        "name": "photoresistor",
+        "prevSize": 64,
+        "code": 59649
+      },
+      "setIdx": 0,
+      "setId": 2,
+      "iconIdx": 1
+    },
+    {
+      "icon": {
+        "paths": [
+          "M519.75 40.625c-167.028 0-301.5 134.472-301.5 301.5v287h-52.75c-13.538 0-24.5 10.837-24.5 24.375v87.375c0 13.538 10.962 24.5 24.5 24.5h132.75v152.5h94v-152.5h254.875v246.625h94.125v-246.625h145.5c13.538 0 24.5-10.962 24.5-24.5v-87.375c0-13.538-10.962-24.375-24.5-24.375h-65.5v-287c0-167.028-134.472-301.5-301.5-301.5zM568.5 101.625c15.487 0 30.614 1.272 45.375 3.75-127.991 21.436-225 132.235-225 266.5v257.25h-90.625v-257.25c0-149.713 120.537-270.25 270.25-270.25z"
+        ],
+        "attrs": [
+          {
+            "fill": "rgb(68, 68, 79)"
+          }
+        ],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "grid": 0,
+        "tags": [
+          "led"
+        ],
+        "colorPermutations": {
+          "255255255168686816868791": [
+            {
+              "f": 1
+            }
+          ]
+        }
+      },
+      "attrs": [
+        {
+          "fill": "rgb(68, 68, 79)"
+        }
+      ],
+      "properties": {
+        "order": 21,
+        "id": 4,
+        "name": "led",
+        "prevSize": 64,
+        "code": 59650
+      },
+      "setIdx": 0,
+      "setId": 2,
+      "iconIdx": 2
+    }
+  ],
+  "height": 1024,
+  "metadata": {
+    "name": "wireless-monitor"
+  },
+  "preferences": {
+    "showGlyphs": true,
+    "showQuickUse": false,
+    "showQuickUse2": true,
+    "showSVGs": true,
+    "fontPref": {
+      "prefix": "wm-icon-",
+      "metadata": {
+        "fontFamily": "wireless-monitor",
+        "majorVersion": 1,
+        "minorVersion": 0
+      },
+      "metrics": {
+        "emSize": 1024,
+        "baseline": 6.25,
+        "whitespace": 50
+      },
+      "embed": false,
+      "postfix": "",
+      "showSelector": false,
+      "cssVars": false,
+      "showMetrics": false,
+      "showMetadata": false,
+      "showVersion": false,
+      "selector": "i",
+      "classSelector": ".icon",
+      "autoHost": false
+    },
+    "imagePref": {
+      "prefix": "icon-",
+      "png": true,
+      "useClassSelector": true,
+      "color": 0,
+      "bgColor": 16777215,
+      "classSelector": ".icon",
+      "height": 32,
+      "columns": 16,
+      "margin": 16
+    },
+    "historySize": 100,
+    "showCodes": true,
+    "gridSize": 16,
+    "showLiga": false,
+    "quickUsageToken": {
+      "UntitledProject": "MDA5NTU0ZDE3YjBmMjRmNmE0ZGI5YzE0OGJjYzc3YWMjMSMxNDczNzE4NzUwIyMj"
+    }
+  }
+}

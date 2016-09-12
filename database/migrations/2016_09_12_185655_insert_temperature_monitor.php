@@ -15,7 +15,7 @@ class InsertTemperatureMonitor extends Migration
         DB::table('monitor_packages')->insert([
             'path' => 'temperature',
             'description' => 'Temperature',
-            'icon' => 'dashboard',
+            'icon' => 'temperature',
             'enabled' => true,
             'created_at' => 'now()',
             'updated_at' => 'now()',
