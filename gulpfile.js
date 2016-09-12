@@ -55,6 +55,7 @@ elixir(function(mix) {
         'balloon.css/balloon.css',
         'chartist/dist/chartist.css',
         '../assets/css/AdminLTE-boxes.css',
+        '../assets/css/custom-fonts.css',
     ], 'public/vendor/vendor.css', vendor);
 
     mix.scripts([

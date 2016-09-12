@@ -27,9 +27,9 @@
         <div class="row">
             @foreach($packages as $value)
             <div class="col-xs-12 col-sm-6 col-md-4">
-                <a href="<?php echo url("$value->path/create"); ?>"
+                <a href="<?php echo url("{$value->path}/create"); ?>"
                     class="btn btn-primary btn-lg btn-block btn-monitor">
-                    <i class="fa fa-{{ $value->icon }}"></i>
+                    <i class="wm-icon wm-icon-{{ $value->icon }}"></i>
                     New {{ $value->description }} Monitor
                 </a>
             </div>

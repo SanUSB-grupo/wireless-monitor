@@ -64,8 +64,11 @@ no método `store` citado anteriormente.
 
 No arquivo `src/migrations/insert_temperature_monitor.php` é necessário
 apenas indicar qual o ícone do Monitor. O sistema usa o conjunto de ícones
-[FontAwesome](http://fontawesome.io/), exemplo: para o ícone `fa-bluetooth`
-indique apenas `bluetooth`.
+customizado com a ferramenta [IcoMoon](https://icomoon.io/app). No diretório
+`custom-fonts` existe um arquivo `selection.json` que pode ser importado
+no IcoMoon para adicionar novas fontes. As fontes são desenvolvidas usando
+arquivos SVG. Caso não tenha uma fonte você pode escolher um já disponível
+no site.
 
 Após salvar o monitor é necessário editar o arquivo que o apresenta na lista
 de Monitores do usuário. O arquivo `src/assets/templates/temperature/index.mustache`

@@ -15,7 +15,7 @@ class InsertPhotoresistorMonitor extends Migration
         DB::table('monitor_packages')->insert([
             'path' => 'photoresistor',
             'description' => 'Photoresistor',
-            'icon' => 'lightbulb-o',
+            'icon' => 'photoresistor',
             'enabled' => true,
             'created_at' => 'now()',
             'updated_at' => 'now()',

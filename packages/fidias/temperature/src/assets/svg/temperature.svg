@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="256"
+   height="256"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="temperature.svg"
+   inkscape:export-filename="/home/atila/NetBeansProjects/wireless-monitor/packages/fidias/blinkleds/src/assets/svg/led.png"
+   inkscape:export-xdpi="5.6199999"
+   inkscape:export-ydpi="5.6199999">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.0410156"
+     inkscape:cx="144.42834"
+     inkscape:cy="164.42792"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:showpageshadow="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="744"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-796.36218)">
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       d="m -176.4514,822.43715 c -37.42832,0 -67.56131,30.13298 -67.56131,67.5613 l 0,0.56021 0,14.92959 0,48.82228 22.66049,0 0,-48.82228 0,-14.92959 0,-0.56021 c 0,-33.56617 24.2472,-61.25 56.24507,-66.60894 -3.69028,-0.6196 -7.47257,-0.95236 -11.34425,-0.95236 z"
+       id="path3799"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#44444f;fill-opacity:1;stroke:none"
+       d="M 129.40625 9.03125 C 99.881578 8.9778812 70.101872 14.746465 40.0625 26.53125 L 40.0625 203.6875 L 67.0625 203.6875 L 67.0625 209.09375 C 67.0625 212.51305 60.761065 217.64225 57.40625 220.59375 C 49.148249 227.77925 40.5625 235.25115 40.5625 244.71875 L 40.5625 257.78125 L 57.9375 257.78125 L 57.9375 248.03125 C 57.9375 243.86195 65.247001 236.8144 68.84375 233.75 C 76.884012 226.7338 84.5 220.13395 84.5 211.59375 L 84.5 203.6875 L 118.96875 203.6875 L 118.96875 257.78125 L 138.25 257.78125 L 138.25 203.6875 L 172.8125 203.6875 L 172.8125 211.59375 C 172.8125 220.13395 180.45974 226.7338 188.5 233.75 C 192.09675 236.8144 199.375 243.86195 199.375 248.03125 L 199.375 257.78125 L 216.75 257.78125 L 216.75 244.71875 C 216.75 235.25115 208.16425 227.77925 199.90625 220.59375 C 196.55143 217.64225 190.25 212.51305 190.25 209.09375 L 190.25 203.6875 L 217.25 203.6875 L 217.25 26.53125 C 188.2261 14.95994 158.93092 9.0846188 129.40625 9.03125 z M 130.25 79.1875 C 141.05405 79.1875 150.39353 85.28838 155.0625 94.25 C 152.10542 93.18775 148.91651 92.625 145.59375 92.625 C 130.12978 92.625 117.59375 105.16103 117.59375 120.625 C 117.59375 125.28314 118.73765 129.66706 120.75 133.53125 C 109.94679 129.64887 102.25 119.32741 102.25 107.1875 C 102.25 91.72353 114.78603 79.1875 130.25 79.1875 z "
+       transform="translate(0,796.36218)"
+       id="rect2984" />
+  </g>
+</svg>
