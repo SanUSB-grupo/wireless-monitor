@@ -128,7 +128,7 @@ Ao final temos recarregar as configurações do composer, executando:
 
 ~~~
 php composer.phar dump-autoload -o
-php artisan vendor:publish
+php artisan vendor:publish --provider="Sanusb\Temperature\Providers\TemperatureServiceProvider"
 php artisan migrate
 ~~~
 
