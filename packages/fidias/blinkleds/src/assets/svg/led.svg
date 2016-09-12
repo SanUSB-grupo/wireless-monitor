@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="256"
+   height="256"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="led.svg"
+   inkscape:export-filename="/home/atila/NetBeansProjects/wireless-monitor/packages/fidias/blinkleds/src/assets/svg/led.png"
+   inkscape:export-xdpi="5.6199999"
+   inkscape:export-ydpi="5.6199999">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4722184"
+     inkscape:cx="58.053201"
+     inkscape:cy="97.746442"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:showpageshadow="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="744"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-796.36218)">
+    <path
+       style="fill:#44444f;fill-opacity:1;stroke:none"
+       d="m 129.92916,806.50628 c -41.757027,0 -75.375002,33.61797 -75.375002,75.375 l 0,0.625 0,16.65625 0,54.46875 150.750002,0 0,-54.46875 0,-16.65625 0,-0.625 c 0,-41.75703 -33.61798,-75.375 -75.375,-75.375 z"
+       id="rect2985"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="fill:#44444f;fill-opacity:1;stroke:none"
+       id="rect2999"
+       width="192.548"
+       height="34.062"
+       x="35.262787"
+       y="953.63129"
+       ry="6.1089821" />
+    <rect
+       style="fill:#44444f;fill-opacity:1;stroke:none"
+       id="rect3001"
+       width="23.522766"
+       height="49.883823"
+       x="74.554161"
+       y="975.95251"
+       ry="0" />
+    <rect
+       ry="0"
+       y="975.95251"
+       x="161.78116"
+       height="73.418533"
+       width="23.523001"
+       id="rect3003"
+       style="fill:#44444f;fill-opacity:1;stroke:none" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       d="m 142.11546,821.7579 c -37.42832,0 -67.561302,30.13298 -67.561302,67.5613 l 0,0.56021 0,14.92959 0,48.82228 22.660485,0 0,-48.82228 0,-14.92959 0,-0.56021 c 0,-33.56617 24.247197,-61.25 56.245067,-66.60894 -3.69028,-0.6196 -7.47257,-0.95236 -11.34425,-0.95236 z"
+       id="path3799"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
