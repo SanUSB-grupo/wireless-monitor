@@ -42,6 +42,8 @@ $(function () {
             list.forEach(function (element, index) {
                 var promise = loadTemplate(element.data.type);
                 $.when(promise).done(function (res) {
+                    // order for flex-box
+                    element.order = index;
                     var result = Mustache.render(res, element);
                     $app.append(result);
                 }).fail(function () {

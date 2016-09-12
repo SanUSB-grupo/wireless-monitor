@@ -7,14 +7,34 @@
 
 @section('content')
 
+<style>
+    #root-app {
+        display: flex;
+        justify-content: flex-start;
+        align-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: 992px) {
+        .btn-monitor {
+            margin-bottom: 10px;
+        }
+    }
+</style>
+
 <div class="row">
     <div class="col-md-12">
-        @foreach($packages as $value)
-        <a href="<?php echo url("$value->path/create"); ?>" class="btn btn-primary btn-lg">
-            <i class="fa fa-{{ $value->icon }}"></i>
-            New {{ $value->description }} Monitor
-        </a>
-        @endforeach
+        <div class="row">
+            @foreach($packages as $value)
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <a href="<?php echo url("$value->path/create"); ?>"
+                    class="btn btn-primary btn-lg btn-block btn-monitor">
+                    <i class="fa fa-{{ $value->icon }}"></i>
+                    New {{ $value->description }} Monitor
+                </a>
+            </div>
+            @endforeach
+        </div>
         <hr>
     </div>
 </div>
