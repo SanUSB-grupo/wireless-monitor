@@ -27,7 +27,7 @@ Route::resource('temperature', 'Monitors\TemperatureController');
 Route::resource('photoresistor', '\Fidias\Photoresistor\Http\Controllers\PhotoresistorController');
 Route::resource('blinkleds', '\Fidias\Blinkleds\Http\Controllers\BlinkledsController');
 
-Route::group(['prefix' => 'api'], function()
+Route::group(['prefix' => 'api', 'middleware' => ['throttle']], function()
 {
 	Route::resource('authenticate', 'JWTAuthController', ['only' => ['index']]);
 	Route::post('authenticate', 'JWTAuthController@authenticate');
