@@ -8,6 +8,8 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
  */
 class DatabaseTest extends TestCase
 {
+    use DatabaseMigrations;
+
     /**
      * @test
      */

@@ -26,7 +26,9 @@ class JWTAuthController extends Controller
      */
     public function index()
     {
-        return response()->json(['ok?' => true], 200);
+        $payload = JWTAuth::parseToken()->getPayload();
+        $monitor_key = $payload->get('monitor_key');
+        return response()->json(['ok?' => true, 'monitor_key' => $monitor_key], 200);
     }
 
     /**
@@ -51,7 +53,6 @@ class JWTAuthController extends Controller
             if (! is_null($credentials)) {
                 $user = User::find($credentials->id);
                 $custom_claims = [
-                    'api_key' => $credentials->api_key,
                     'monitor_key' => $credentials->monitor_key,
                 ];
             }
