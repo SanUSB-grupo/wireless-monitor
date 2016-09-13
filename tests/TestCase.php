@@ -1,5 +1,9 @@
 <?php
 
+use App\User;
+use App\Monitor;
+use Webpatser\Uuid\Uuid;
+
 abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
 {
     /**
@@ -21,5 +25,26 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
         $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 
         return $app;
+    }
+
+    protected function createUser()
+    {
+        $user = factory(User::class)->create([
+            'name' => 'user test',
+            'email' => 'usertest@example.com',
+            'api_key' => Uuid::generate(4),
+            'password' => bcrypt('password'),
+        ]);
+        return $user;
+    }
+
+    protected function createMonitor(User $user)
+    {
+        $monitor = factory(Monitor::class)->create([
+            'monitor_key' => Uuid::generate(4),
+            'user_id' => $user->id,
+            'data' => '{"value": 10}',
+        ]);
+        return $monitor;
     }
 }
