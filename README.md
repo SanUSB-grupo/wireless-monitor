@@ -44,6 +44,18 @@ Start the local server
 php artisan serve
 ~~~
 
+## Testing
+
+`php vendor/bin/phpunit`
+
+### Testing a package
+
+`php vendor/bin/phpunit packages/fidias/blinkleds/`
+
+### With code coverage option
+
+`php vendor/bin/phpunit --coverage-html _reports/coverage/``
+
 ## License
 
 Copyright (C) 2016 Átila Camurça <camurca.home@gmail.com>
