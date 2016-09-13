@@ -1,5 +1,7 @@
 # Wireless Monitor
 
+[![Build Status](https://travis-ci.org/SanUSB-grupo/wireless-monitor.svg?branch=master)](https://travis-ci.org/SanUSB-grupo/wireless-monitor)
+
 Aplicativo web para receber e mostrar dados vindos de equipamentos IOT.
 
 Web app to receive and show data that comes from IOT devices.
