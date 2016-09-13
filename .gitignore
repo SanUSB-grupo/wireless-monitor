@@ -14,3 +14,4 @@ composer.phar
 /public/templates
 /docs/_book
 /docs/node_modules
+_reports

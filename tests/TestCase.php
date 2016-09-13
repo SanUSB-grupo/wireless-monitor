@@ -43,7 +43,7 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
         $monitor = factory(Monitor::class)->create([
             'monitor_key' => Uuid::generate(4),
             'user_id' => $user->id,
-            'data' => '{"value": 10}',
+            'data' => '{"value": 10, "type": "temperature"}',
         ]);
         return $monitor;
     }
