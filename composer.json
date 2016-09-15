@@ -50,6 +50,12 @@
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "php artisan optimize"
+        ],
+        "test": [
+            "phpunit",
+            "phpunit packages/fidias/blinkleds/",
+            "phpunit packages/fidias/photoresitor/",
+            "phpunit packages/fidias/temperature/"
         ]
     },
     "config": {
