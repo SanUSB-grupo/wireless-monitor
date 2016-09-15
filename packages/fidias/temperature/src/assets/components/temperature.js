@@ -5,7 +5,7 @@ define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
     var id = $('input#id').val();
     var $app = $('div#monitor-view');
     var LIMIT = 30;
-    var ORDER = 'asc';
+    var ORDER = 'desc';
 
     function notHigherNotLower(value, min, max) {
         if (value < min) {
@@ -72,7 +72,7 @@ define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
         items = items || [];
         var len = items.length;
         if (len > 0) {
-            this.monitor.item = items[len - 1];
+            this.monitor.item = items[0];
             var result = model.render(this.template, this.monitor);
             $app.html(result);
             $(".input-knob").knob({
@@ -89,7 +89,7 @@ define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
         var serie = [];
         var len = items.length;
         if (len > 0) {
-            for (var i = 0; i < len; i++) {
+            for (var i = len - 1; i > 0; i--) {
                 var item = items[i];
                 labels.push(item.created_at);
                 var value = notHigherNotLower(
