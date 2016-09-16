@@ -89,7 +89,7 @@ define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
         var serie = [];
         var len = items.length;
         if (len > 0) {
-            for (var i = len - 1; i > 0; i--) {
+            for (var i = len - 1; i >= 0; i--) {
                 var item = items[i];
                 labels.push(item.created_at);
                 var value = notHigherNotLower(
