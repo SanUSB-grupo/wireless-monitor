@@ -31,5 +31,6 @@ Route::group(['prefix' => 'api', 'middleware' => ['throttle']], function()
 {
 	Route::resource('authenticate', 'JWTAuthController', ['only' => ['index']]);
 	Route::post('authenticate', 'JWTAuthController@authenticate');
+	Route::get('refresh-token', 'JWTAuthController@refreshToken');
     Route::resource('send', 'Api\SendController', ['only' => ['store']]);
 });
