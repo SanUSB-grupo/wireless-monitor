@@ -31,9 +31,9 @@ class SendControllerTest extends TestCase
         $response = $this->call('POST', 'api/authenticate', $data);
         $content = json_decode($response->getContent());
         $token = $content->token;
-        $headers = array(
+        $headers = [
             'Authorization' => 'Bearer ' . $token
-        );
+        ];
         // accessing JWTAuthController@index
         $this->json('GET', '/api/authenticate', [], $headers)
             ->seeJsonStructure([

@@ -67,4 +67,13 @@ class JWTAuthController extends Controller
         // if no errors are encountered we can return a JWT
         return response()->json(compact('token'));
     }
+
+    public function refreshToken()
+    {
+        $token = JWTAuth::refresh(JWTAuth::getToken());
+        if (! $token) {
+            return response()->json(['error' => 'invalid_credentials'], 401);
+        }
+        return response()->json(['token' => $token], 200);
+    }
 }
