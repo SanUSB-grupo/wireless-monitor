@@ -12,6 +12,8 @@ use App\User;
 
 class JWTAuthController extends Controller
 {
+    const UUID_REGEX = '/([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})/';
+
     public function __construct()
     {
         // Apply the jwt.auth middleware to all methods in this controller
@@ -39,6 +41,18 @@ class JWTAuthController extends Controller
     public function authenticate(Request $request)
     {
         $keys = $request->only('api_key', 'monitor_key');
+
+        $errors = [];
+        if (! preg_match(self::UUID_REGEX, $keys['api_key'])) {
+            $errors[] = "API KEY not in UUID format.";
+        }
+        if (! preg_match(self::UUID_REGEX, $keys['monitor_key'])) {
+            $errors[] = "Monitor KEY not in UUID format.";
+        }
+        if (count($errors) > 0) {
+            return response()->json(['errors' => $errors], 400);
+        }
+
         $credentials = DB::table('users')
                             ->join('monitors', 'users.id', '=', 'monitors.user_id')
                             ->select('users.id', 'users.api_key', 'monitors.monitor_key')

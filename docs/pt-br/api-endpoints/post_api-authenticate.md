@@ -73,3 +73,34 @@ Set-Cookie: laravel_session=eyJpdiI6InlDUmJBckc4NEgzVzVEc0MxSjVJTUE9PSIsInZhbHVl
     "error":"invalid_credentials"
 }
 ```
+
+## Resposta de Erro `HTTP 400`
+
+Formato da `api_key` ou `monitor_key` não está de acordo com o formato UUID v4.
+
+### Headers
+
+```
+HTTP/1.1 400 Bad Request
+Host: localhost:8000
+Connection: close
+X-Powered-By: PHP/5.5.9-1ubuntu4.19
+Cache-Control: no-cache
+Content-Type: application/json
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 58
+Date: Mon, 19 Sep 2016 22:54:41 GMT
+Set-Cookie: XSRF-TOKEN=eyJpdiI6IkpnYVhzNkt2ZWtYTjBsZWhwTjVpaEE9PSIsInZhbHVlIjoiRDhRbGdyRlwvRlR2YlhcL1p5amVZUHdQVjVkMGg4ZnhBZjJjUlBoejVsK3J6TVJvaW43QkNuUU5Da1d6eWFZNnlDS1V3b0JmTFF0XC9JdlBJRWhrTStYeFE9PSIsIm1hYyI6ImU4MGM1ZWYyMzg2NmVjYWUxZmM4ZjQ5MjFiN2U4MmE2MmYxZjgzOTgzNTI3ODdlMjE2ODAwMGE5ZGNlN2I0YWYifQ%3D%3D; expires=Tue, 20-Sep-2016 00:54:41 GMT; Max-Age=7200; path=/
+Set-Cookie: laravel_session=eyJpdiI6InVtNjdMWEMxRXBmRXNGbStpeUxzdEE9PSIsInZhbHVlIjoibFppVkw2RjRXeWZqVGN5XC9zU3JtUW9KdEJwUElRbktZT2dBc1hTQm80RGRxRHByRzNycHkyMVBYaWZVbHN2OGl4ZGkweGFxQm9VU2xKdklVdXFMZE9RPT0iLCJtYWMiOiJiODM5MGE0YTAyMTE3N2I0Y2RhYTE3ZmNlZTI0NDRlODUyYzQzZDI5N2JhMWU4OGJkYmFmZDBjZWYzN2IyMjc0In0%3D; expires=Tue, 20-Sep-2016 00:54:41 GMT; Max-Age=7200; path=/; httponly
+```
+
+### Body
+
+```json
+{
+    "errors": [
+        "API KEY not in UUID format.",
+        "Monitor KEY not in UUID format."
+    ]
+}
+```

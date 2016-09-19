@@ -59,6 +59,24 @@ class AuthControllerTest extends TestCase
             ]);
     }
 
+    /**
+     * @test
+     */
+    public function malformedToken()
+    {
+        $data = [
+            'api_key' => '',
+            'monitor_key' => '********-zzzz-yyyy-wwww-++++++++++++',
+        ];
+        $this->json('POST', '/api/authenticate', $data)
+            ->seeJsonEquals([
+                "errors" => [
+                    'API KEY not in UUID format.',
+                    'Monitor KEY not in UUID format.'
+                ]
+            ])->assertResponseStatus(400);
+    }
+
     private function postAuth()
     {
         $user = $this->createUser();
