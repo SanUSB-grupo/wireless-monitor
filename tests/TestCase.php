@@ -38,13 +38,17 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
         return $user;
     }
 
-    protected function createMonitor(User $user)
+    protected function createMonitor(User $user, $type = 'temperature')
     {
         $monitor = factory(Monitor::class)->create([
             'monitor_key' => Uuid::generate(4),
             'user_id' => $user->id,
-            'data' => '{"value": 10, "type": "temperature"}',
+            'data' => '{"value": 10, "type": "' . $type . '"}',
         ]);
         return $monitor;
+    }
+
+    protected function deleteMonitorByKey($monitor_key) {
+        return Monitor::where('monitor_key', $monitor_key)->delete();
     }
 }

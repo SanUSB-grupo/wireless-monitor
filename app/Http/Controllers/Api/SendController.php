@@ -13,6 +13,10 @@ use App\Monitor;
 
 class SendController extends Controller
 {
+    const ERR_MONITOR_NOT_FOUND = 10;
+    const ERR_TYPE_NOT_SUPPORTED = 11;
+    const ERR_SCHEMA_FAILED = 12;
+
     public function __construct()
     {
         $this->middleware('jwt.auth');
@@ -25,22 +29,22 @@ class SendController extends Controller
         $monitor = Monitor::where('monitor_key', $monitor_key)->first();
         if (is_null($monitor)) {
             return response()->json([
-                'ok?' => false,
+                'error_code' => self::ERR_MONITOR_NOT_FOUND,
                 'errors' => [
                     'message' => "Monitor Key '$monitor_key' not found."
                 ]
-            ]);
+            ], 400);
         }
         $monitor_data = json_decode($monitor->data);
         $type = $monitor_data->type;
         $json_schema_file = "json-schema/{$type}.json";
         if (! Storage::exists($json_schema_file)) {
             return response()->json([
-                'ok?' => false,
+                'error_code' => self::ERR_TYPE_NOT_SUPPORTED,
                 'errors' => [
                     'message' => "Monitor type '$type' not supported yet."
                 ]
-            ]);
+            ], 400);
         }
         $contents = Storage::get($json_schema_file);
         $schema = json_decode($contents);
@@ -58,7 +62,6 @@ class SendController extends Controller
                 'data' => $data,
             ]);
             return response()->json([
-                'ok?' => true,
                 'data' => $data
             ], 200);
         }
@@ -67,9 +70,9 @@ class SendController extends Controller
             $errors[] = $e->toArray();
         }
         return response()->json([
-            'ok?' => false,
+            'error_code' => self::ERR_SCHEMA_FAILED,
             'errors' => $errors,
             'data' => $data
-        ]);
+        ], 400);
     }
 }

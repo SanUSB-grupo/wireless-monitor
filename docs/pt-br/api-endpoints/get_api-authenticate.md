@@ -14,14 +14,13 @@ Nenhum.
 | `Authorization` | `Bearer <token>`
 
 Substitua `<token>` pelo valor recebido em
-[POST - /api/authenticate](api-endpoints/post_api-authenticate.md).
+[POST - /api/authenticate](post_api-authenticate.md).
 
 ## Resposta de Sucesso `HTTP 200`
 
 | Atributo      | Descrição                      | Tipo
 | ------------- | ------------------------------ | -------
-| `ok?`         | Valor `true` indicando que tudo está _ok_. | `Boolean`
-| `monitor_key` | UUID | `String`
+| `monitor_key` | UUID                           | `String`
 
 ### Headers
 
@@ -42,7 +41,6 @@ Set-Cookie: laravel_session=eyJpdiI6IlU5Z2kwM09TVWNxU2JqYm8xMUJzaHc9PSIsInZhbHVl
 
 ```json
 {
-    "ok?": true,
     "monitor_key": "ecceb968-6a00-484b-8d64-ca664f70ba4c"
 }
 ```

@@ -30,7 +30,7 @@ class JWTAuthController extends Controller
     {
         $payload = JWTAuth::parseToken()->getPayload();
         $monitor_key = $payload->get('monitor_key');
-        return response()->json(['ok?' => true, 'monitor_key' => $monitor_key], 200);
+        return response()->json(['monitor_key' => $monitor_key], 200);
     }
 
     /**
