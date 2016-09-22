@@ -19,7 +19,7 @@ que tokens tem data de validade e limite de requisições.
 | `Authorization` | `Bearer <token>`
 
 Substitua `<token>` pelo valor recebido em
-[POST - /api/authenticate](api-endpoints/post_api-authenticate.md).
+[POST - /api/authenticate](post_api-authenticate.md).
 
 ## Resposta de Sucesso `HTTP 200`
 

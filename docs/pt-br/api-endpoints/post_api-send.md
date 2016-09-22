@@ -3,7 +3,7 @@
 Endpoint para envio de dados capturados pelo dispositivo IOT.
 
 Para cada plugin há um JSON Schema de como os dados deve ser enviados, entretanto
-os atributos são fixos.
+existe apenas o atributo `data`, que deve conter uma representação JSON.
 
 ## Parâmetros
 
@@ -21,7 +21,6 @@ os atributos são fixos.
 
 | Atributo      | Descrição                      | Tipo
 | ------------- | ------------------------------ | -------
-| `ok?`         | Boolean indicando status.      | `Boolean`
 | `data`        | Os próprios dados enviados     | `JSON`
 
 ### Headers
@@ -43,7 +42,6 @@ Set-Cookie: laravel_session=eyJpdiI6IkJTaysxRWNwclVoM3ZvY0dlcldBRHc9PSIsInZhbHVl
 
 ```json
 {
-    "ok?": true,
     "data": {
         "value": 35
     }
@@ -59,7 +57,107 @@ curl -i -X POST -H 'Content-Type: application/json' \
     http://localhost:8000/api/send
 ```
 
-<!-- TODO: issue-50 As respostas que irão mostrar erros devem ser configuradas com HTTP status code 400 Bad Request. -->
+## Resposta de Erro `HTTP 400`
+
+`monitor_key` não encontrada. Pode acontecer no caso de ter um dispositivo usando
+a `monitor_key` em questão e você ter apagado o Monitor no sistema.
+
+### Headers
+
+```
+HTTP/1.1 400 Bad Request
+Host: localhost:8000
+Connection: close
+X-Powered-By: PHP/5.5.9-1ubuntu4.19
+Cache-Control: no-cache
+Content-Type: application/json
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 59
+Date: Sun, 18 Sep 2016 19:11:42 GMT
+Set-Cookie: laravel_session=eyJpdiI6ImVFRFVWYk42UW5TQ3hXa01ZV3IrWnc9PSIsInZhbHVlIjoiQ3c2M1NGU1cxNTA3YkthYUNFTUNCMXlYcHVveFwvTndFZEhaTmhLZE10VnBiTXhVbExuVkZQUUltMTQ0Q3FKeHhWYTVPbnpkNEM0VzNrWTk1YlZvdlNBPT0iLCJtYWMiOiI3YTU4NjhjOWE5MTM1NmY4MzU0YWQxODMwM2Q1YzM5N2EyNDU3Y2I4ZTFmZTYzYTdhNDkzNThjNzU5Mzg5NTQwIn0%3D; expires=Sun, 18-Sep-2016 21:11:42 GMT; Max-Age=7200; path=/; httponly
+```
+
+### Body
+
+```json
+{
+    "error_code": 10,
+    "errors": [
+        {
+            "message": "Monitor Key '99999999-9999-9999-9999-999999999999' not found."
+        }
+    ]
+}
+```
+
+## Resposta de Erro `HTTP 400`
+
+Tipo do Monitor não suportado ainda. Pode acontecer quando um monitor existente
+é removido do projeto, ou simplesmente não foi implementado.
+
+### Headers
+
+```
+HTTP/1.1 400 Bad Request
+Host: localhost:8000
+Connection: close
+X-Powered-By: PHP/5.5.9-1ubuntu4.19
+Cache-Control: no-cache
+Content-Type: application/json
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 59
+Date: Sun, 18 Sep 2016 19:11:42 GMT
+Set-Cookie: laravel_session=eyJpdiI6ImVFRFVWYk42UW5TQ3hXa01ZV3IrWnc9PSIsInZhbHVlIjoiQ3c2M1NGU1cxNTA3YkthYUNFTUNCMXlYcHVveFwvTndFZEhaTmhLZE10VnBiTXhVbExuVkZQUUltMTQ0Q3FKeHhWYTVPbnpkNEM0VzNrWTk1YlZvdlNBPT0iLCJtYWMiOiI3YTU4NjhjOWE5MTM1NmY4MzU0YWQxODMwM2Q1YzM5N2EyNDU3Y2I4ZTFmZTYzYTdhNDkzNThjNzU5Mzg5NTQwIn0%3D; expires=Sun, 18-Sep-2016 21:11:42 GMT; Max-Age=7200; path=/; httponly
+```
+
+### Body
+
+```json
+{
+    "error_code": 11,
+    "errors": [
+        {
+            "message": "Monitor type 'Unknow' not supported yet."
+        }
+    ]
+}
+```
+
+## Resposta de Erro `HTTP 400`
+
+Conteúdo dos dados não condiz com o JSON Schema do Monitor. Cada Monitor
+possui um JSON Schema que define como os dados devem ser enviados.
+
+### Headers
+
+```
+HTTP/1.1 400 Bad Request
+Host: localhost:8000
+Connection: close
+X-Powered-By: PHP/5.5.9-1ubuntu4.19
+Cache-Control: no-cache
+Content-Type: application/json
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 59
+Date: Sun, 18 Sep 2016 19:11:42 GMT
+Set-Cookie: laravel_session=eyJpdiI6ImVFRFVWYk42UW5TQ3hXa01ZV3IrWnc9PSIsInZhbHVlIjoiQ3c2M1NGU1cxNTA3YkthYUNFTUNCMXlYcHVveFwvTndFZEhaTmhLZE10VnBiTXhVbExuVkZQUUltMTQ0Q3FKeHhWYTVPbnpkNEM0VzNrWTk1YlZvdlNBPT0iLCJtYWMiOiI3YTU4NjhjOWE5MTM1NmY4MzU0YWQxODMwM2Q1YzM5N2EyNDU3Y2I4ZTFmZTYzYTdhNDkzNThjNzU5Mzg5NTQwIn0%3D; expires=Sun, 18-Sep-2016 21:11:42 GMT; Max-Age=7200; path=/; httponly
+```
+
+### Body
+
+```json
+{
+    "error_code": 12,
+    "errors": [
+        {
+            /* ... */
+        }
+    ],
+    "data": {
+        /* ... */
+    }
+}
+```
 
 ## Resposta de Erro `HTTP 400`
 
