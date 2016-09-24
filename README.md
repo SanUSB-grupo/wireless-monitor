@@ -54,7 +54,7 @@ php artisan serve
 
 ### With code coverage option
 
-`php vendor/bin/phpunit --coverage-html _reports/coverage/``
+`php vendor/bin/phpunit --coverage-html _reports/coverage/`
 
 ## License
 

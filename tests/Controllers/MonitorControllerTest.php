@@ -40,7 +40,6 @@ class MonitorControllerTest extends TestCase
         $monitor = $this->createMonitor($user);
         $this->actingAs($user);
         $response = $this->call('GET', "/monitor/{$monitor->id}");
-        file_put_contents('/tmp/index.html', $response->content());
         $this->assertEquals(200, $response->status());
         $this->assertViewHas('monitor');
         $this->assertViewHas('auth_json');

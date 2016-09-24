@@ -4,13 +4,18 @@ namespace @@Vendor\@@Plugin\Http\Controllers;
 
 use App\Http\Controllers\AbstractMonitorController;
 use Illuminate\Http\Request;
+use App\Monitor;
 
 class @@PluginController extends AbstractMonitorController
 {
     public function create()
     {
         $title = 'New @@Plugin Monitor';
-        return view('@@plugin::save', ['title' => $title]);
+        $model = null;
+        return view('@@plugin::save', [
+            'title' => $title,
+            'model' => $model,
+        ]);
     }
 
     public function store(Request $request)
@@ -23,5 +28,24 @@ class @@PluginController extends AbstractMonitorController
         $result['type'] = '@@plugin';
         $this->_save($result);
         return redirect('/monitor');
+    }
+
+    public function edit($id)
+    {
+        $monitor = $this->_getMonitor($id);
+        $title = 'Edit @@Plugin Monitor';
+
+        return view('@@plugin::save', [
+            'title' => $title,
+            'model' => $this->transformJson($monitor),
+        ]);
+    }
+
+    protected function transformJson(Monitor $monitor)
+    {
+        $obj = new Monitor();
+        $obj->id = $monitor->id;
+        // fill the object
+        return $obj;
     }
 }

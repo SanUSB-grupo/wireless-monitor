@@ -11,9 +11,11 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         {!! BootForm::open([
-            'model' => null,
-            'store' => '\@@Vendor\@@Plugin\Http\Controllers\@@PluginController@store'
+            'model' => $model,
+            'store' => '\@@Vendor\@@Plugin\Http\Controllers\@@PluginController@store',
+            'update' => '\@@Vendor\@@Plugin\Http\Controllers\@@PluginController@update',
         ]) !!}
+        {!! BootForm::hidden('id') !!}
         <div class="row">
             <div class="col-md-12">
                 {!! BootForm::text('description') !!}

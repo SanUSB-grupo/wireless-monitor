@@ -35,8 +35,8 @@ class SendController extends Controller
                 ]
             ], 400);
         }
-        $monitor_data = json_decode($monitor->data);
-        $type = $monitor_data->type;
+
+        $type = $monitor->data['type'];
         $json_schema_file = "json-schema/{$type}.json";
         if (! Storage::exists($json_schema_file)) {
             return response()->json([

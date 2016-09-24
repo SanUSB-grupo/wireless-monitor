@@ -31,14 +31,12 @@ class MonitorController extends Controller
             ->orderBy('updated_at', 'desc')
             ->get()
             ->toArray();
-        $items = Monitor::hydrate($list);
-        return response()->json(['ok' => true, 'list' => $items]);
+        return response()->json(['ok' => true, 'list' => $list]);
     }
 
     public function show($id) {
         $user = Auth::user();
         $monitor = $this->get($id, $user);
-        $monitor->data = json_decode($monitor->data, TRUE);
         $auth_json = "{
   \"api_key\": \"{$user->api_key}\",
   \"monitor_key\": \"{$monitor->monitor_key}\"
@@ -65,7 +63,6 @@ class MonitorController extends Controller
         $user = Auth::user();
         $id = $request->input('id');
         $monitor = $this->get($id, $user);
-        $monitor->data = json_decode($monitor->data, TRUE);
         return response()->json(['monitor' => $monitor, 'ok' => true]);
     }
 
