@@ -15,9 +15,11 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         {!! BootForm::open([
-            'model' => null,
-            'store' => '\Fidias\Blinkleds\Http\Controllers\BlinkledsController@store'
+            'model' => $model,
+            'store' => '\Fidias\Blinkleds\Http\Controllers\BlinkledsController@store',
+            'update' => '\Fidias\Blinkleds\Http\Controllers\BlinkledsController@update',
         ]) !!}
+        {!! BootForm::hidden('id') !!}
         <div class="row">
             <div class="col-md-12">
                 {!! BootForm::text('description') !!}
@@ -42,10 +44,21 @@
 
         <div class="row">
             <div class="col-md-12" id="led-list">
-                @if(Form::old('leds'))
-                    @foreach(Form::old('leds') as $key => $val)
+                @php
+                    $leds = null;
+                    // priority to old leds, that represents
+                    // already edited information!
+                    if (Form::old('leds')) {
+                        $leds = Form::old('leds');
+                    } else if (! is_null($model)) {
+                        $leds = $model->leds;
+                    }
+                @endphp
+
+                @if($leds)
+                    @foreach($leds as $key => $val)
                         <div class="row led--item" id="led-item-{{$key}}">
-                            <div class="col-md-3" id="led-item-{{$key}}">
+                            <div class="col-md-3">
                                 {!! BootForm::text("leds[${key}][id]", "LED ${key}") !!}
                             </div>
                             <div class="col-md-3">
