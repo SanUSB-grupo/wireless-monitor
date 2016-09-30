@@ -1,11 +1,13 @@
 
-define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
-    function ($, moment, Chartist, TIMEOUT, model) {
+define(['jquery', 'moment', 'Chart', 'monitors/timeout', 'monitors/monitor'],
+    function ($, moment, Chart, TIMEOUT, model) {
 
     var id = $('input#id').val();
     var $app = $('div#monitor-view');
     var LIMIT = 30;
     var ORDER = 'desc';
+
+    Chart.defaults.global.animation = 0;
 
     function notHigherNotLower(value, min, max) {
         if (value < min) {
@@ -60,11 +62,15 @@ define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
         this.template = template;
         this.monitor = $.extend(monitor, utils);
         this.chartOptions = {
-            low: this.monitor.data.min,
-            high: this.monitor.data.max,
-            lineSmooth: Chartist.Interpolation.simple({
-                divisor: 2
-            })
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        min: this.monitor.data.min * 1,
+                        max: this.monitor.data.max * 1
+                    }
+                }],
+                paddingRight: 10,
+            }
         };
     };
 
@@ -97,10 +103,26 @@ define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
                 serie.push(value);
             }
 
-            this.chart = new Chartist.Line('.ct-chart', {
-                labels: labels,
-                series: [serie]
-            }, this.chartOptions);
+            var $ctx = $('#temperature-chart');
+            var ctx = $ctx.get(0).getContext('2d');
+
+            this.chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: this.monitor.data.description,
+                        data: serie,
+                        borderColor: 'rgba(52,152,219,1)',
+                        pointBackgroundColor: 'rgba(52,152,219,1)',
+                        pointBorderColor: 'rgba(52,152,219,1)',
+                        pointHoverBackgroundColor: '#fff',
+                        pointBorderWidth: 4,
+                        backgroundColor: 'rgba(151,187,205,0.2)',
+                    }]
+                },
+                options: this.chartOptions
+            });
         }
     };
 
@@ -112,6 +134,7 @@ define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
         var template = resp1[0];
         var monitor = resp2[0].monitor;
         var items = resp3[0].items;
+
         var t = new Temperature(template, monitor);
         t.render(items);
         t.plot(items);
@@ -124,7 +147,7 @@ define(['jquery', 'moment', 'Chartist', 'monitors/timeout', 'monitors/monitor'],
     });
 
     function onCompleteOnce() {
-        console.info('promise loaded.');
+        console.info('Promise loaded.');
     }
 
     function onComplete(temperature) {
