@@ -68,8 +68,7 @@ define(['jquery', 'moment', 'Chart', 'monitors/timeout', 'monitors/monitor'],
                         min: this.monitor.data.min * 1,
                         max: this.monitor.data.max * 1
                     }
-                }],
-                paddingRight: 10,
+                }]
             }
         };
     };
