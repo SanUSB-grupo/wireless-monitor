@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <link href="{{ asset('img/favicon.ico') }}" rel="icon">
         <title>Wireless Monitor</title>
 
         <!-- Fonts -->
@@ -26,6 +26,16 @@
             .container__content {
                 margin-bottom: 150px;
             }
+            .navbar-brand {
+                padding: 0px;
+                margin-left: 20px;
+            }
+            .navbar-brand > img {
+                height: 100%;
+                padding: 15px;
+                width: auto;
+                display: inline;
+            }
         </style>
     </head>
     <body id="app-layout">
@@ -44,6 +54,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
+                        <img alt="logo" src="{{ asset('img/logo.png') }}" />
                         Wireless Monitor
                     </a>
                 </div>
