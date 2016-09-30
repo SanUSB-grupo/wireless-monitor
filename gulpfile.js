@@ -46,8 +46,9 @@ elixir(function(mix) {
         'bootstrap/dist/js/bootstrap.js',
         'mustache.js/mustache.js',
         'jquery-knob/js/jquery.knob.js',
-        'chartist/dist/chartist.js',
-        'moment/min/moment-with-locales.js'
+        'chartist/dist/chartist.js', // TODO remove it!
+        'moment/min/moment-with-locales.js',
+        'chart.js/dist/Chart.js'
     ], 'public/vendor/vendor.js', vendor);
 
     mix.styles([
