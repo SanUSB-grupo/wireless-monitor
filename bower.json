@@ -24,7 +24,6 @@
     "moment": "^2.14.1",
     "balloon.css": "*",
     "bootswatch": "^3.3.7",
-    "chartist": "^0.9.8",
     "chart.js": "^2.3.0"
   }
 }

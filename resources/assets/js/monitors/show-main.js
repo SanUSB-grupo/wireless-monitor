@@ -12,10 +12,6 @@ define('moment', [], function () {
     return moment;
 });
 
-define('Chartist', [], function () {
-    return Chartist;
-});
-
 define('Chart', [], function () {
     return Chart;
 });
