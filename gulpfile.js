@@ -46,7 +46,6 @@ elixir(function(mix) {
         'bootstrap/dist/js/bootstrap.js',
         'mustache.js/mustache.js',
         'jquery-knob/js/jquery.knob.js',
-        'chartist/dist/chartist.js', // TODO remove it!
         'moment/min/moment-with-locales.js',
         'chart.js/dist/Chart.js'
     ], 'public/vendor/vendor.js', vendor);
@@ -54,7 +53,6 @@ elixir(function(mix) {
     mix.styles([
         'bootswatch/flatly/bootstrap.css',
         'balloon.css/balloon.css',
-        'chartist/dist/chartist.css',
         '../assets/css/AdminLTE-boxes.css',
         '../assets/css/custom-fonts.css',
     ], 'public/vendor/vendor.css', vendor);

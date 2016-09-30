@@ -3,15 +3,6 @@ define(['jquery'], function ($) {
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         var target = this.href.split('#');
         $('.nav a').filter('[href="#'+target[1]+'"]').tab('show');
-
-        // hack: prevent the chart to be malformed
-        // see <https://github.com/gionkunz/chartist-js/issues/169>
-        if ($(e.target).attr('href') === '#view') {
-            var chart = document.querySelector('.ct-chart');
-            if (chart) {
-                chart.__chartist__.update();
-            }
-        }
     });
 
     return {
