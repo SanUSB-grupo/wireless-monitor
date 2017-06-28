@@ -1,0 +1,456 @@
+
+<!DOCTYPE HTML>
+<html lang="pt-br" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Instalação no Ubuntu · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../api-endpoints/" />
+    
+    
+    <link rel="prev" href="./" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Escreva para pesquisar" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../features/">
+            
+                <a href="../features/">
+            
+                    
+                    Funcionalidades
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../features/temperature.html">
+            
+                <a href="../features/temperature.html">
+            
+                    
+                    Temperatura
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../features/photoresistor.html">
+            
+                <a href="../features/photoresistor.html">
+            
+                    
+                    Luminosidade
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../features/blinkleds.html">
+            
+                <a href="../features/blinkleds.html">
+            
+                    
+                    Pisca LEDs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Instalação
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.3.1" data-path="ubuntu.html">
+            
+                <a href="ubuntu.html">
+            
+                    
+                    Instalação no Ubuntu
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../api-endpoints/">
+            
+                <a href="../api-endpoints/">
+            
+                    
+                    Endpoints da API
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../api-endpoints/post_api-authenticate.html">
+            
+                <a href="../api-endpoints/post_api-authenticate.html">
+            
+                    
+                    POST - /api/authenticate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../api-endpoints/get_api-authenticate.html">
+            
+                <a href="../api-endpoints/get_api-authenticate.html">
+            
+                    
+                    GET - /api/authenticate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../api-endpoints/get_api-refresh-token.html">
+            
+                <a href="../api-endpoints/get_api-refresh-token.html">
+            
+                    
+                    GET - /api/refresh-token
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../api-endpoints/post_api-send.html">
+            
+                <a href="../api-endpoints/post_api-send.html">
+            
+                    
+                    POST - /api/send
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../plugin-development.html">
+            
+                <a href="../plugin-development.html">
+            
+                    
+                    Desenvolvimento de Plugins
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Publicado com GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Instalação no Ubuntu</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="instala&#xE7;&#xE3;o-manual-no-ubuntu-1404">Instala&#xE7;&#xE3;o Manual no Ubuntu 14.04</h1>
+<h2 id="php">PHP</h2>
+<p>Comece instalando o PHP e suas depend&#xEA;ncias:</p>
+<pre><code class="lang-bash">sudo apt-get install -y php-5 php5-pgsql php5-mcrypt
+</code></pre>
+<h2 id="nodejs">NodeJS</h2>
+<p>Em seguida instale o NodeJS:</p>
+<pre><code class="lang-bash">curl <span class="hljs-_">-s</span>L https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo apt-get install -y build-essential
+</code></pre>
+<h2 id="postgresql">PostgreSQL</h2>
+<p>Por fim a instala&#xE7;&#xE3;o do PostgreSQL:</p>
+<pre><code class="lang-bash">sudo apt-get install -y postgresql
+</code></pre>
+<p>A vers&#xE3;o padr&#xE3;o &#xE9; a 9.3, mas &#xE9; poss&#xED;vel instalar vers&#xF5;es mais recentes. Para isso
+basta baixar o instalador do site
+<a href="http://www.enterprisedb.com/products-services-training/pgdownload#linux" target="_blank">http://www.enterprisedb.com/products-services-training/pgdownload#linux</a>.</p>
+<p>Baixe o instalador de acordo com sua arquitetura, ou seja, 32 ou 64 bits.
+Ap&#xF3;s baixar a instala&#xE7;&#xE3;o &#xE9; feita da seguinte forma (supondo que a vers&#xE3;o
+tenha sido a 9.5.4-1 para Ubuntu 64 bits):</p>
+<pre><code class="lang-bash">chmod u+x postgresql-9.5.4-1-linux-x64.run
+sudo ./postgresql-9.5.4-1-linux-x64.run
+</code></pre>
+<p>Siga as instru&#xE7;&#xF5;es de instala&#xE7;&#xE3;o que a ferramenta ir&#xE1; indicar.</p>
+<h2 id="wireless-monitor">Wireless Monitor</h2>
+<p>Baixe uma vers&#xE3;o da p&#xE1;gina <a href="https://github.com/SanUSB-grupo/wireless-monitor/releases" target="_blank">https://github.com/SanUSB-grupo/wireless-monitor/releases</a>.</p>
+<p>Os comandos abaixo servem para a instala&#xE7;&#xE3;o da vers&#xE3;o 1.0.0 (para outras vers&#xF5;es
+modifique apenas a numera&#xE7;&#xE3;o):</p>
+<pre><code class="lang-bash">curl -LkO <span class="hljs-string">&quot;https://github.com/SanUSB-grupo/wireless-monitor/archive/1.0.0.tar.gz&quot;</span>
+tar xzf 1.0.0.tar.gz
+<span class="hljs-built_in">cd</span> wireless-monitor-1.0.0/
+curl -O <span class="hljs-string">&quot;https://getcomposer.org/composer.phar&quot;</span>
+php composer.phar install
+cp .env.example .env
+</code></pre>
+<p>Edite o arquivo <code>.env</code> informando os dados de sua conex&#xE3;o com o PostgreSQL.</p>
+<pre><code class="lang-bash">php artisan key:generate
+php artisan jwt:generate
+npm install
+npm run tests:travis-bower
+npm run tests:travis-gulp
+php artisan migrate
+</code></pre>
+<p>Para executar o servidor:</p>
+<pre><code class="lang-bash">php artisan serve
+</code></pre>
+<p>Por padr&#xE3;o um servidor HTTP ser&#xE1; iniciado na porta 8000. Para visualizar
+abra um navegador na URL <a href="http://localhost:8000" target="_blank">http://localhost:8000</a>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Instalação">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../api-endpoints/" class="navigation navigation-next " aria-label="Next page: Endpoints da API">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Instalação no Ubuntu","level":"1.3.1","depth":2,"next":{"title":"Endpoints da API","level":"1.4","depth":1,"path":"api-endpoints/README.md","ref":"api-endpoints/README.md","articles":[{"title":"POST - /api/authenticate","level":"1.4.1","depth":2,"path":"api-endpoints/post_api-authenticate.md","ref":"api-endpoints/post_api-authenticate.md","articles":[]},{"title":"GET - /api/authenticate","level":"1.4.2","depth":2,"path":"api-endpoints/get_api-authenticate.md","ref":"api-endpoints/get_api-authenticate.md","articles":[]},{"title":"GET - /api/refresh-token","level":"1.4.3","depth":2,"path":"api-endpoints/get_api-refresh-token.md","ref":"api-endpoints/get_api-refresh-token.md","articles":[]},{"title":"POST - /api/send","level":"1.4.4","depth":2,"path":"api-endpoints/post_api-send.md","ref":"api-endpoints/post_api-send.md","articles":[]}]},"previous":{"title":"Instalação","level":"1.3","depth":1,"path":"getting-started/README.md","ref":"getting-started/README.md","articles":[{"title":"Instalação no Ubuntu","level":"1.3.1","depth":2,"path":"getting-started/ubuntu.md","ref":"getting-started/ubuntu.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["image-captions"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"image-captions":{"variable_name":"_pictures"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"features/index.html#fig1.2.1","level":"1.2","list_caption":"Figure: Monitor - Lista","alt":"Monitor - Lista","nro":1,"url":"img/monitor-index.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Monitor - Lista","attributes":{},"skip":false,"key":"1.2.1"},{"backlink":"features/temperature.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Temperatura - Criar","alt":"Temperatura - Criar","nro":2,"url":"img/temperature-create.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Temperatura - Criar","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"features/temperature.html#fig1.2.1.2","level":"1.2.1","list_caption":"Figure: Temperatura - Visualizar","alt":"Temperatura - Visualizar","nro":3,"url":"img/temperature-show.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Temperatura - Visualizar","attributes":{},"skip":false,"key":"1.2.1.2"},{"backlink":"features/photoresistor.html#fig1.2.2.1","level":"1.2.2","list_caption":"Figure: Luminosidade - Criar","alt":"Luminosidade - Criar","nro":4,"url":"img/photoresistor-create.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Luminosidade - Criar","attributes":{},"skip":false,"key":"1.2.2.1"},{"backlink":"features/photoresistor.html#fig1.2.2.2","level":"1.2.2","list_caption":"Figure: Luminosidade - Visualizar","alt":"Luminosidade - Visualizar","nro":5,"url":"img/photoresistor-show.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Luminosidade - Visualizar","attributes":{},"skip":false,"key":"1.2.2.2"},{"backlink":"features/blinkleds.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: Pisca LEDs - Criar","alt":"Pisca LEDs - Criar","nro":6,"url":"img/blinkleds-create.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Pisca LEDs - Criar","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"features/blinkleds.html#fig1.2.3.2","level":"1.2.3","list_caption":"Figure: Pisca LEDs - Visualizar","alt":"Pisca LEDs - Visualizar","nro":7,"url":"img/blinkleds-show.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Pisca LEDs - Visualizar","attributes":{},"skip":false,"key":"1.2.3.2"}]},"language":"pt-br","gitbook":"*"},"file":{"path":"getting-started/ubuntu.md","mtime":"2016-09-17T20:23:17.268Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-28T23:08:05.204Z"},"basePath":"..","book":{"language":"pt-br"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,538 @@
+
+<!DOCTYPE HTML>
+<html lang="pt-br" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>GET - /api/authenticate · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-image-captions/image-captions.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="get_api-refresh-token.html" />
+    
+    
+    <link rel="prev" href="post_api-authenticate.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Escreva para pesquisar" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../features/">
+            
+                <a href="../features/">
+            
+                    
+                    Funcionalidades
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../features/temperature.html">
+            
+                <a href="../features/temperature.html">
+            
+                    
+                    Temperatura
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../features/photoresistor.html">
+            
+                <a href="../features/photoresistor.html">
+            
+                    
+                    Luminosidade
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.3" data-path="../features/blinkleds.html">
+            
+                <a href="../features/blinkleds.html">
+            
+                    
+                    Pisca LEDs
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../getting-started/">
+            
+                <a href="../getting-started/">
+            
+                    
+                    Instalação
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../getting-started/ubuntu.html">
+            
+                <a href="../getting-started/ubuntu.html">
+            
+                    
+                    Instalação no Ubuntu
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Endpoints da API
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="post_api-authenticate.html">
+            
+                <a href="post_api-authenticate.html">
+            
+                    
+                    POST - /api/authenticate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.2" data-path="get_api-authenticate.html">
+            
+                <a href="get_api-authenticate.html">
+            
+                    
+                    GET - /api/authenticate
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="get_api-refresh-token.html">
+            
+                <a href="get_api-refresh-token.html">
+            
+                    
+                    GET - /api/refresh-token
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="post_api-send.html">
+            
+                <a href="post_api-send.html">
+            
+                    
+                    POST - /api/send
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../plugin-development.html">
+            
+                <a href="../plugin-development.html">
+            
+                    
+                    Desenvolvimento de Plugins
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Publicado com GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >GET - /api/authenticate</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="get-apiauthenticate"><code>GET</code> <code>/api/authenticate</code></h1>
+<p>Endpoint de testes, apenas recebe um token e confirma que o usu&#xE1;rio est&#xE1;
+autenticado.</p>
+<h2 id="par&#xE2;metros">Par&#xE2;metros</h2>
+<p>Nenhum.</p>
+<h2 id="headers">Headers</h2>
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Authorization</code></td>
+<td><code>Bearer &lt;token&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>Substitua <code>&lt;token&gt;</code> pelo valor recebido em
+<a href="post_api-authenticate.html">POST - /api/authenticate</a>.</p>
+<h2 id="resposta-de-sucesso-http-200">Resposta de Sucesso <code>HTTP 200</code></h2>
+<table>
+<thead>
+<tr>
+<th>Atributo</th>
+<th>Descri&#xE7;&#xE3;o</th>
+<th>Tipo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>monitor_key</code></td>
+<td>UUID</td>
+<td><code>String</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="headers">Headers</h3>
+<pre><code>HTTP/1.1 200 OK
+Host: localhost:8000
+Connection: close
+X-Powered-By: PHP/5.5.9-1ubuntu4.19
+Cache-Control: no-cache
+Content-Type: application/json
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 59
+Date: Sun, 18 Sep 2016 19:06:30 GMT
+Set-Cookie: laravel_session=eyJpdiI6IlU5Z2kwM09TVWNxU2JqYm8xMUJzaHc9PSIsInZhbHVlIjoialJ5ZnUzYUQ2c1FIRGIzQXo3ZVc0YzZEaU5sRWJnaWc1MG5Ea05Qanh1RWlqTmtWUElVdDc1OU1ucllPSWhpMmxwbklub3hiUTNUZ2hKWTM2TWdhbnc9PSIsIm1hYyI6IjYwODI5NzUxNzdiYzIwMWZhN2ZhODdjMDI5OTEyNDI2MWQ0YzIwZTI0MDBjNTgzYjg1YjEwZGUwMjA2MzEyZDAifQ%3D%3D; expires=Sun, 18-Sep-2016 21:06:30 GMT; Max-Age=7200; path=/; httponly
+</code></pre><h3 id="body">Body</h3>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;monitor_key&quot;</span>: <span class="hljs-string">&quot;ecceb968-6a00-484b-8d64-ca664f70ba4c&quot;</span>
+}
+</code></pre>
+<h3 id="exemplo">Exemplo</h3>
+<pre><code class="lang-bash">curl -i -X GET \
+    -H <span class="hljs-string">&apos;Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtb25pdG9yX2tleSI6ImVjY2ViOTY4LTZhMDAtNDg0Yi04ZDY0LWNhNjY0ZjcwYmE0YyIsInN1YiI6NCwiaXNzIjoiaHR0cDpcL1wvbG9jYWxob3N0OjgwMDBcL2FwaVwvYXV0aGVudGljYXRlIiwiaWF0IjoxNDc0MjI1NTQ3LCJleHAiOjE0NzQyMjkxNDcsIm5iZiI6MTQ3NDIyNTU0NywianRpIjoiYjIxYTNhNjZiYWI2N2QxMTgyZThiM2ZiMTVkOTY5ZjUifQ.SiNRSXufHQNrqWC2_NbnSRrS0qtDyzlrQvWxBem10RY&apos;</span> \
+    http://localhost:8000/api/authenticate
+</code></pre>
+<h2 id="resposta-de-erro-http-400">Resposta de Erro <code>HTTP 400</code></h2>
+<p>Token inv&#xE1;lido ou mal-formado.</p>
+<h3 id="headers">Headers</h3>
+<pre><code>HTTP/1.1 400 Bad Request
+Host: localhost:8000
+Connection: close
+X-Powered-By: PHP/5.5.9-1ubuntu4.19
+Cache-Control: no-cache
+Content-Type: application/json
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 57
+Date: Sun, 18 Sep 2016 19:08:48 GMT
+Set-Cookie: laravel_session=eyJpdiI6Imppd0J3Z1RsSnlPTUlIUGpTTEJDNlE9PSIsInZhbHVlIjoiT0UxSW9xVThcL01tN0VlWXNlNFZ3S3VlZHFzbndwYlM5VzJtTTlReDN4bGt6WUN2Z25BVjAwbUM3clU5dlhPQnpnNWgzK0FnbEtxUHV3YnBKUE5RTkpnPT0iLCJtYWMiOiIyNjU4NzdhYzIxODg0NDdiNTRkZWQyOWQwZmRlYjk3NTlkNDIwZGRjZDFhYmJlNDU4YjQ3OWJjNjJiMDI3ODU2In0%3D; expires=Sun, 18-Sep-2016 21:08:48 GMT; Max-Age=7200; path=/; httponly
+</code></pre><h3 id="body">Body</h3>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;error&quot;</span>:<span class="hljs-string">&quot;token_invalid&quot;</span>
+}
+</code></pre>
+<h2 id="resposta-de-erro-http-400">Resposta de Erro <code>HTTP 400</code></h2>
+<p>Token n&#xE3;o informado.</p>
+<h3 id="headers">Headers</h3>
+<pre><code>HTTP/1.1 400 Bad Request
+Host: localhost:8000
+Connection: close
+X-Powered-By: PHP/5.5.9-1ubuntu4.19
+Cache-Control: no-cache
+Content-Type: application/json
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 59
+Date: Sun, 18 Sep 2016 19:11:42 GMT
+Set-Cookie: laravel_session=eyJpdiI6ImVFRFVWYk42UW5TQ3hXa01ZV3IrWnc9PSIsInZhbHVlIjoiQ3c2M1NGU1cxNTA3YkthYUNFTUNCMXlYcHVveFwvTndFZEhaTmhLZE10VnBiTXhVbExuVkZQUUltMTQ0Q3FKeHhWYTVPbnpkNEM0VzNrWTk1YlZvdlNBPT0iLCJtYWMiOiI3YTU4NjhjOWE5MTM1NmY4MzU0YWQxODMwM2Q1YzM5N2EyNDU3Y2I4ZTFmZTYzYTdhNDkzNThjNzU5Mzg5NTQwIn0%3D; expires=Sun, 18-Sep-2016 21:11:42 GMT; Max-Age=7200; path=/; httponly
+</code></pre><h3 id="body">Body</h3>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;error&quot;</span>:<span class="hljs-string">&quot;token_not_provided&quot;</span>
+}
+</code></pre>
+<h2 id="resposta-de-erro-http-429">Resposta de Erro <code>HTTP 429</code></h2>
+<p>Limite m&#xE1;ximo de requisi&#xE7;&#xF5;es por intervalo de tempo.</p>
+<p>S&#xE3;o <code>60</code> requisi&#xE7;&#xF5;es a cada <code>1</code> minuto no m&#xE1;ximo.</p>
+<h3 id="headers">Headers</h3>
+<pre><code>HTTP/1.1 429 Too Many Requests
+Host: localhost:8000
+Connection: close
+X-Powered-By: PHP/5.5.9-1ubuntu4.19
+Cache-Control: no-cache
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 0
+Retry-After: 25
+Content-Type: text/html; charset=UTF-8
+Date: Sun, 18 Sep 2016 19:16:55 GMT
+Set-Cookie: laravel_session=eyJpdiI6ImZXZmcyNUxVaFBsOGdNSkZhR3ZTM1E9PSIsInZhbHVlIjoiS2dMREoweEhLQTBXbnpycW5rNTA2WUhra0tCRTZNZ3FLRmVvSnB4SHdlZTlHeGxYazRMaTRWNlRCN29jWXJMbmQrcmY5VVhzbWhNMHA0RWg5bmxVVmc9PSIsIm1hYyI6IjEwNWZhMDdhM2VkY2E4MDg4NDlkMTExNzYxODY4N2RiZjg1MDk2NzZkN2IxYmU5NjdlMjNmYWY4ZmJmZjE5NDUifQ%3D%3D; expires=Sun, 18-Sep-2016 21:16:55 GMT; Max-Age=7200; path=/; httponly
+</code></pre><h3 id="body">Body</h3>
+<pre><code>Too Many Attempts.
+</code></pre><h2 id="resposta-de-erro-http-401">Resposta de Erro <code>HTTP 401</code></h2>
+<p>Token expirado.</p>
+<h3 id="headers">Headers</h3>
+<pre><code>HTTP/1.1 401 Unauthorized
+Host: localhost:8000
+Connection: close
+X-Powered-By: PHP/5.5.9-1ubuntu4.19
+Cache-Control: no-cache
+Content-Type: application/json
+X-RateLimit-Limit: 60
+X-RateLimit-Remaining: 59
+Date: Sun, 18 Sep 2016 21:38:13 GMT
+Set-Cookie: laravel_session=eyJpdiI6IjBnNGJjVmNNOW1cLzNVT1pWbUZ5NHFnPT0iLCJ2YWx1ZSI6IksxQk5EVllGUU8razBaXC9GK0tTSG02SnZvN1JXT29rTUdyZG9yVjh5N0ZFSzZSeDRyRFhUSExuZUtMSFo4TUFuRncrcWY1bUtZVkk5Slp2R1I5Snp4dz09IiwibWFjIjoiZjcwOGRlNThlODQ4YzFlZTMzN2I1NDRlOTFkNjlmOWE2MmZjMDk3MzUwZDRmYjBmY2NhYjk3ZTQzNTlhY2RkMyJ9; expires=Sun, 18-Sep-2016 23:38:13 GMT; Max-Age=7200; path=/; httponly
+</code></pre><h3 id="body">Body</h3>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;error&quot;</span>: <span class="hljs-string">&quot;token_expired&quot;</span>
+}
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="post_api-authenticate.html" class="navigation navigation-prev " aria-label="Previous page: POST - /api/authenticate">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="get_api-refresh-token.html" class="navigation navigation-next " aria-label="Next page: GET - /api/refresh-token">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"GET - /api/authenticate","level":"1.4.2","depth":2,"next":{"title":"GET - /api/refresh-token","level":"1.4.3","depth":2,"path":"api-endpoints/get_api-refresh-token.md","ref":"api-endpoints/get_api-refresh-token.md","articles":[]},"previous":{"title":"POST - /api/authenticate","level":"1.4.1","depth":2,"path":"api-endpoints/post_api-authenticate.md","ref":"api-endpoints/post_api-authenticate.md","articles":[]},"dir":"ltr"},"config":{"plugins":["image-captions"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"image-captions":{"variable_name":"_pictures"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"_pictures":[{"backlink":"features/index.html#fig1.2.1","level":"1.2","list_caption":"Figure: Monitor - Lista","alt":"Monitor - Lista","nro":1,"url":"img/monitor-index.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Monitor - Lista","attributes":{},"skip":false,"key":"1.2.1"},{"backlink":"features/temperature.html#fig1.2.1.1","level":"1.2.1","list_caption":"Figure: Temperatura - Criar","alt":"Temperatura - Criar","nro":2,"url":"img/temperature-create.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Temperatura - Criar","attributes":{},"skip":false,"key":"1.2.1.1"},{"backlink":"features/temperature.html#fig1.2.1.2","level":"1.2.1","list_caption":"Figure: Temperatura - Visualizar","alt":"Temperatura - Visualizar","nro":3,"url":"img/temperature-show.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Temperatura - Visualizar","attributes":{},"skip":false,"key":"1.2.1.2"},{"backlink":"features/photoresistor.html#fig1.2.2.1","level":"1.2.2","list_caption":"Figure: Luminosidade - Criar","alt":"Luminosidade - Criar","nro":4,"url":"img/photoresistor-create.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Luminosidade - Criar","attributes":{},"skip":false,"key":"1.2.2.1"},{"backlink":"features/photoresistor.html#fig1.2.2.2","level":"1.2.2","list_caption":"Figure: Luminosidade - Visualizar","alt":"Luminosidade - Visualizar","nro":5,"url":"img/photoresistor-show.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Luminosidade - Visualizar","attributes":{},"skip":false,"key":"1.2.2.2"},{"backlink":"features/blinkleds.html#fig1.2.3.1","level":"1.2.3","list_caption":"Figure: Pisca LEDs - Criar","alt":"Pisca LEDs - Criar","nro":6,"url":"img/blinkleds-create.png","index":1,"caption_template":"Figure: _CAPTION_","label":"Pisca LEDs - Criar","attributes":{},"skip":false,"key":"1.2.3.1"},{"backlink":"features/blinkleds.html#fig1.2.3.2","level":"1.2.3","list_caption":"Figure: Pisca LEDs - Visualizar","alt":"Pisca LEDs - Visualizar","nro":7,"url":"img/blinkleds-show.png","index":2,"caption_template":"Figure: _CAPTION_","label":"Pisca LEDs - Visualizar","attributes":{},"skip":false,"key":"1.2.3.2"}]},"language":"pt-br","gitbook":"*"},"file":{"path":"api-endpoints/get_api-authenticate.md","mtime":"2016-09-22T23:12:50.706Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-28T23:08:05.204Z"},"basePath":"..","book":{"language":"pt-br"}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
