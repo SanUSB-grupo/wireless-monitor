@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-4">
-        <div class="box box-solid box-primary">
+        <div class="box box-solid box-danger">
             <div class="box-header">
                 <h3 class="box-title">Step 1</h3>
             </div>
@@ -21,11 +21,16 @@
                 <p>
                     Then you need to collect data with some kind of sensor.
                 </p>
+                <a href="https://sanusb-grupo.github.io/wireless-monitor/pt-br/index.html"
+                    class="btn btn-primary btn-block"
+                    target="_blank">
+                    View Documentation
+                </a>
             </div>
         </div>
     </div>
     <div class="col-md-4">
-        <div class="box box-solid box-primary">
+        <div class="box box-solid box-warning">
             <div class="box-header">
                 <h3 class="box-title">Step 2</h3>
             </div>
@@ -49,7 +54,9 @@
             <div class="box-footer">
                 <h4>Useful links</h4>
                 <div>
-                    <a class="list-group-item" href="https://github.com/bblanchon/ArduinoJson">
+                    <a class="list-group-item"
+                        href="https://github.com/bblanchon/ArduinoJson"
+                        target="_blank">
                         JSON library for embedded systems
                     </a>
                 </div>

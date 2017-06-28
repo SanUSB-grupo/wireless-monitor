@@ -17,16 +17,6 @@ class HomeController extends Controller
         $this->middleware('auth', ['except' => 'welcome']);
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('home');
-    }
-
     public function welcome()
     {
         return view('welcome');

@@ -10,15 +10,6 @@ class HomeControllerTest extends TestCase
     /**
      * @test
      */
-    public function index()
-    {
-        $response = $this->call('GET', '/home');
-        $this->assertEquals(200, $response->status());
-    }
-
-    /**
-     * @test
-     */
     public function welcome()
     {
         $response = $this->call('GET', '/');
