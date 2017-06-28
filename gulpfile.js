@@ -55,11 +55,21 @@ elixir(function(mix) {
         'balloon.css/balloon.css',
         '../assets/css/AdminLTE-boxes.css',
         '../assets/css/custom-fonts.css',
+        '../assets/css/app.css',
     ], 'public/vendor/vendor.css', vendor);
 
     mix.scripts([
         'requirejs/require.js'
     ], 'public/js/require.js', vendor);
+
+    mix.scripts([
+        'lity/dist/lity.js'
+    ], 'public/js/welcome.js', vendor);
+
+    mix.styles([
+        'lity/dist/lity.css',
+        '../assets/css/welcome.css'
+    ], 'public/css/welcome.css', vendor);
 
     mix.version([
         'public/js/monitors/index.js',
@@ -69,9 +79,9 @@ elixir(function(mix) {
         'public/js/monitors/show-main.js',
         'public/js/monitors/monitor.js',
         'public/js/monitors/timeout.js',
+        'public/js/welcome.js',
+        'public/css/welcome.css'
     ]);
-
-    mix.sass('app.scss');
 
     // custom commands
     mix.copyMustache('./packages/**/*.mustache', './public/templates');

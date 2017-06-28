@@ -16,7 +16,7 @@ class TemperatureController extends AbstractMonitorController
     ];
 
     protected $units = [
-        'celcius' => 'Celcius',
+        'celsius' => 'Celsius',
         'fahrenheit' => 'Fahrenheit',
         'kelvin' => 'Kelvin'
     ];
