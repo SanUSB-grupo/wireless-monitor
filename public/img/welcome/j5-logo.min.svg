@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 630 630" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<metadata>
+<rdf:RDF>
+<cc:Work rdf:about="">
+<dc:format>image/svg+xml</dc:format>
+<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+<dc:title>logo</dc:title>
+</cc:Work>
+</rdf:RDF>
+</metadata>
+<title>logo</title>
+<desc>Created with Sketch.</desc>
+<g fill="none" fill-rule="evenodd">
+<rect width="630" height="630" fill="#F3DF49"/>
+<path d="m213.86 497.3c9.3012 16.491 17.762 30.444 38.058 30.444 19.454 0 31.719-7.6098 31.719-37.21v-201.3h59.204v202.14c0 61.32-35.944 89.231-88.385 89.231-47.361 0-74.852-24.529-88.808-54.13l48.212-29.172z" fill="#2E2E2C"/>
+<path d="m470.64 580.86c-25.56 0-47.88-6.2099-66.96-18.63s-32.58-27.09-40.5-44.01l46.98-24.3c12.96 25.56 33.12 38.34 60.48 38.34 16.56 0 29.43-4.32 38.61-12.96s13.77-20.7 13.77-36.18c0-31.32-20.16-46.98-60.48-46.98-25.92 0-48.42 6.8399-67.5 20.52l-2.7-1.62v-165.24h168.48v47.52h-120.42v55.08c9.36-2.88 21.78-4.32 37.26-4.32 29.88 0 54.54 8.9999 73.98 27s29.16 41.04 29.16 69.12c0 28.8-9.4499 52.11-28.35 69.93-18.9 17.82-46.17 26.73-81.81 26.73z" fill="#2E2E2C"/>
+</g>
+</svg>

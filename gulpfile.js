@@ -83,6 +83,10 @@ elixir(function(mix) {
         'public/css/welcome.css'
     ]);
 
+    mix.browserSync({
+        proxy: "localhost:8000"
+    });
+
     // custom commands
     mix.copyMustache('./packages/**/*.mustache', './public/templates');
     mix.copyComponents('./packages/**/components/*.js',
