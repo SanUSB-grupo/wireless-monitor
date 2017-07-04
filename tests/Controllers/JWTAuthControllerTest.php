@@ -9,6 +9,15 @@ class JWTAuthControllerTest extends TestCase
 {
     use DatabaseMigrations;
 
+    private $user;
+    private $monitor;
+
+    public function setUp() {
+        parent::setUp();
+        $this->user = $this->createUser();
+        $this->monitor = $this->createMonitor($this->user);
+    }
+
     /**
      * @test
      */
@@ -96,17 +105,16 @@ class JWTAuthControllerTest extends TestCase
         $this->json('GET', '/api/authenticate', [], $headers)
             ->seeJsonStructure([
                 'monitor_key',
+            ])->seeJsonEquals([
+                'monitor_key' => $this->monitor->monitor_key->string
             ]);
     }
 
     private function postAuth()
     {
-        $user = $this->createUser();
-        $monitor = $this->createMonitor($user);
-
         $data = [
-            'api_key' => $user->api_key,
-            'monitor_key' => $monitor->monitor_key,
+            'api_key' => $this->user->api_key,
+            'monitor_key' => $this->monitor->monitor_key,
         ];
         return $this->call('POST', '/api/authenticate', $data);
     }

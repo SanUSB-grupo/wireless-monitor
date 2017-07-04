@@ -8,6 +8,7 @@ use ymon\JWTAuth\PayloadFactory;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Support\Facades\DB;
+use Xuid\Xuid;
 use App\User;
 
 class JWTAuthController extends Controller
@@ -29,7 +30,8 @@ class JWTAuthController extends Controller
     public function index()
     {
         $payload = JWTAuth::parseToken()->getPayload();
-        $monitor_key = $payload->get('monitor_key');
+        $xuid = new Xuid();
+        $monitor_key = $xuid->decode($payload->get('monitor_key'));
         return response()->json(['monitor_key' => $monitor_key], 200);
     }
 
@@ -66,8 +68,9 @@ class JWTAuthController extends Controller
             $custom_claims = null;
             if (! is_null($credentials)) {
                 $user = User::find($credentials->id);
+                $xuid = new Xuid();
                 $custom_claims = [
-                    'monitor_key' => $credentials->monitor_key,
+                    'monitor_key' => $xuid->encode($credentials->monitor_key),
                 ];
             }
             // verify the credentials and create a token for the user
