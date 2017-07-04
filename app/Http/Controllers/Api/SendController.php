@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use JWTAuth;
 use League\JsonGuard\Validator;
 use Storage;
+use Xuid\Xuid;
 use App\Measure;
 use App\Monitor;
 
@@ -25,7 +26,8 @@ class SendController extends Controller
     public function store(Request $request)
     {
         $payload = JWTAuth::parseToken()->getPayload();
-        $monitor_key = $payload->get('monitor_key');
+        $xuid = new Xuid();
+        $monitor_key = $xuid->decode($payload->get('monitor_key'));
         $monitor = Monitor::where('monitor_key', $monitor_key)->first();
         if (is_null($monitor)) {
             return response()->json([

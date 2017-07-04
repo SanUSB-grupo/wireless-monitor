@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
-use \JWTAuth;
 use App\Http\Controllers\Api\SendController as Controller;
 
 class SendControllerTest extends TestCase
