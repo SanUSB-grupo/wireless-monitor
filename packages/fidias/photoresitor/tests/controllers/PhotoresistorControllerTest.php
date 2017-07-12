@@ -3,12 +3,12 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use \Storage;
 use League\JsonGuard\Validator;
+use App\Monitor;
 
 class PhotoresistorControllerTest extends TestCase
 {
-    use WithoutMiddleware;
+    use WithoutMiddleware, DatabaseMigrations;
 
     /**
      * @test
@@ -18,6 +18,28 @@ class PhotoresistorControllerTest extends TestCase
         $response = $this->call('GET', '/photoresistor/create');
         $this->assertEquals(200, $response->status());
         $this->assertViewHas('title');
+    }
+
+    /**
+     * @test
+     */
+    public function storage()
+    {
+        $user = $this->createUser();
+        $this->actingAs($user);
+        $this->visit('/photoresistor/create');
+        $this->type('Bedroom Test', 'description');
+        $this->type('10', 'min');
+        $this->type('45', 'max');
+        $this->press('Save');
+        $this->seePageIs('/monitor/1');
+        $this->see('created successfully');
+
+        $monitor = Monitor::where('id', 1)->first();
+        $this->assertEquals($monitor->data['description'], 'Bedroom Test');
+        $this->assertEquals($monitor->data['min'], '10');
+        $this->assertEquals($monitor->data['max'], '45');
+        $this->assertEquals($monitor->user_id, $user->id);
     }
 
     /**

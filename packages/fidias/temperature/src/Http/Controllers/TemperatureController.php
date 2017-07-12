@@ -39,8 +39,9 @@ class TemperatureController extends AbstractMonitorController
 
         $result = $request->toArray();
         $result['type'] = 'temperature';
-        $this->_save($result);
-        return redirect('/monitor');
+        $monitor = $this->_save($result);
+        flash('Temperature Monitor created successfully.')->success()->important();
+        return redirect("/monitor/{$monitor->id}");
     }
 
     public function edit($id)
