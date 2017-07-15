@@ -3,12 +3,12 @@
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use \Storage;
 use League\JsonGuard\Validator;
+use App\Monitor;
 
 class BlinkledsControllerTest extends TestCase
 {
-    use WithoutMiddleware;
+    use WithoutMiddleware, DatabaseMigrations;
 
     /**
      * @test
@@ -19,6 +19,34 @@ class BlinkledsControllerTest extends TestCase
         $this->assertEquals(200, $response->status());
         $this->assertViewHas('colors');
         $this->assertViewHas('title');
+    }
+
+    /**
+     * @test
+     */
+    public function storage()
+    {
+        $data = [
+            'description' => 'Blink LEDs Test',
+            'leds' => [
+                [
+                    'id' => 'led1',
+                    'color' => '#3498db'
+                ]
+            ]
+        ];
+
+        $user = $this->createUser();
+        $this->actingAs($user);
+        $response = $this->call('POST', '/blinkleds', $data);
+        // assert redirect
+        $this->assertEquals($response->status(), 302);
+        $monitor = Monitor::where('id', 1)->first();
+        $this->assertEquals($monitor->data['description'], 'Blink LEDs Test');
+        $this->assertEquals($monitor->data['type'], 'blinkleds');
+        $this->assertEquals(count($monitor->data['leds']), 1);
+        $this->assertEquals($monitor->data['leds'][0]['id'], 'led1');
+        $this->assertEquals($monitor->data['leds'][0]['color'], '#3498db');
     }
 
     /**

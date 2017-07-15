@@ -159,6 +159,7 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Laracasts\Flash\FlashServiceProvider::class,
 
         // Bootstrap Form
         Collective\Html\HtmlServiceProvider::class,

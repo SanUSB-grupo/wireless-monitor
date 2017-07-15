@@ -26,8 +26,9 @@ class @@PluginController extends AbstractMonitorController
 
         $result = $request->toArray();
         $result['type'] = '@@plugin';
-        $this->_save($result);
-        return redirect('/monitor');
+        $monitor = $this->_save($result);
+        flash('@@Plugin Monitor created successfully.')->success()->important();
+        return redirect("/monitor/{$monitor->id}");
     }
 
     public function edit($id)
