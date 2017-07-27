@@ -93,6 +93,41 @@
         <div class="container">
             <div class="row margin-top margin-bottom text-center">
                 <div class="col-md-12">
+                    <h2>Example projects</h2>
+                </div>
+                <div class="col-md-6">
+                    <img src="{{ asset('img/welcome/nodemcu-esp8266.jpg') }}"
+                        class="img-rounded integration-icon"/>
+                    <p>
+                        Example project using NodeMCU ESP8266 with Arduino IDE<br/>
+                        <code>setup/loop</code> model.
+                    </p>
+                    <p>
+                        Language: C/C++ (Arduino)
+                    </p>
+                    <a href="https://github.com/atilacamurca/wm-example-esp8266"
+                        class="btn btn-success btn-lg" target="_blank">
+                        <i class="fa fa-github"></i>
+                        Source code
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <img src="{{ asset('img/welcome/raspberry-pi-arduino.svg') }}"
+                        class="img-rounded integration-icon"/>
+                    <p>
+                        Example project using Raspberry Pi and Arduino connected<br>
+                        using Johnny-Five library.
+                    </p>
+                    <p>Language: JavaScript (NodeJS)</p>
+                    <a href="https://github.com/atilacamurca/wm-sensor-temperature"
+                        class="btn btn-success btn-lg" target="_blank">
+                        <i class="fa fa-github"></i>
+                        Source code
+                    </a>
+                </div>
+            </div>
+            <div class="row margin-bottom text-center">
+                <div class="col-md-12">
                     <h2>
                         Integrate Wireless Monitor with other JavaScript
                         Frameworks and Platforms
@@ -101,7 +136,8 @@
             </div>
             <div class="row margin-bottom text-center">
                 <div class="col-md-4">
-                    <img src="{{ asset('img/welcome/j5-logo.min.svg') }}" class="img-rounded integration-icon">
+                    <img src="{{ asset('img/welcome/j5-logo.min.svg') }}"
+                        class="img-rounded integration-icon"/>
                     <p>
                         Johnny-Five is the JavaScript Robotics &amp; IoT Platform. Released by
                         <a href="http://www.bocoup.com/">Bocoup</a> in 2012, Johnny-Five
@@ -114,7 +150,8 @@
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <img src="{{ asset('img/welcome/cylonjs-logo.min.svg') }}" class="img-rounded integration-icon">
+                    <img src="{{ asset('img/welcome/cylonjs-logo.min.svg') }}"
+                        class="img-rounded integration-icon"/>
                     <p>
                         Cylon.js is a JavaScript framework for robotics, physical computing, and the Internet of Things. It makes it incredibly easy to command robots and devices.
                     </p>
@@ -124,7 +161,8 @@
                     </a>
                 </div>
                 <div class="col-md-4">
-                    <img src="{{ asset('img/welcome/tessel-logo.min.svg') }}" class="img-rounded integration-icon">
+                    <img src="{{ asset('img/welcome/tessel-logo.min.svg') }}"
+                        class="img-rounded integration-icon"/>
                     <p>
                         Tessel is a completely open source and community-driven IoT and robotics development platform. It encompasses development boards, hardware module add-ons, and the software that runs on them.
                     </p>
@@ -225,7 +263,7 @@
                         Read the paper that explains how the project was conceived
                         and developed.
                     </p>
-                    <a href="https://github.com/atilacamurca/wireless-monitor-paper/blob/master/main.pdf"
+                    <a href="https://github.com/atilacamurca/wireless-monitor-paper/blob/tcc/main.pdf"
                         class="btn btn-primary btn-lg"
                         target="_blank">
                         Read

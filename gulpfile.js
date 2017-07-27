@@ -84,7 +84,8 @@ elixir(function(mix) {
     ]);
 
     mix.browserSync({
-        proxy: "localhost:8000"
+        proxy: 'localhost:8000',
+        open: false
     });
 
     // custom commands
