@@ -31,7 +31,7 @@ class PhotoresistorController extends AbstractMonitorController
         $result = $request->toArray();
         $result['type'] = 'photoresistor';
         $monitor = $this->_save($result);
-        flash('Photoresistor Monitor created successfully.')->success()->important();
+        flash('Photoresistor Monitor saved successfully.')->success()->important();
         return redirect("/monitor/{$monitor->id}");
     }
 

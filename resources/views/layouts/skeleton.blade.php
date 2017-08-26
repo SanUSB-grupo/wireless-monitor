@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -49,15 +49,7 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li class="@isActive('/login')">
-                                <a href="{{ url('/login') }}">Login</a>
-                            </li>
-                            <li class="@isActive('/register')">
-                                <a href="{{ url('/register') }}">Register</a>
-                            </li>
-                        @else
+                        @auth
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -67,7 +59,14 @@
                                     <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                                 </ul>
                             </li>
-                        @endif
+                        @else
+                            <li class="@isActive('/login')">
+                                <a href="{{ url('/login') }}">Login</a>
+                            </li>
+                            <li class="@isActive('/register')">
+                                <a href="{{ url('/register') }}">Register</a>
+                            </li>
+                        @endauth
                     </ul>
                 </div>
             </div>

@@ -24,6 +24,8 @@ class TemperatureServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../migrations/insert_temperature_monitor.php' => database_path('/migrations/' . $timestamp . '_insert_temperature_monitor.php'),
         ], 'database');
+
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
     }
 
     /**
