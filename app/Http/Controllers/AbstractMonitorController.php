@@ -15,7 +15,7 @@ abstract class AbstractMonitorController extends Controller
     }
 
     /**
-     * Save a minitor
+     * Save a monitor
      * @param  [array] $result array of data, including type
      * @return [App\Monitor]
      */
@@ -25,14 +25,18 @@ abstract class AbstractMonitorController extends Controller
         if (isset($result['id']) && $result['id'] > 0) {
             $id = $result['id'];
             unset($result['id']);
-            return Monitor::where('id', $id)
-                ->where('user_id', Auth::user()->id)
-                ->update(['data' => json_encode($result)]);
+            $monitor = Monitor::find($id);
+            if ($monitor->user_id == Auth::id()) {
+                $monitor->data = $result;
+                $monitor->save();
+            }
+            return $monitor;
         }
+        unset($result['id']);
         return Monitor::create([
             'monitor_key' => Uuid::generate(4),
             'data' => $result,
-            'user_id' => Auth::user()->id,
+            'user_id' => Auth::id(),
         ]);
     }
 
@@ -46,7 +50,7 @@ abstract class AbstractMonitorController extends Controller
                     ->where([
                         ['monitors.id', '=', $id],
                         ['users.id', '=', $user->id]
-                    ])->get();
+                    ])->get()->all();
         return Monitor::hydrate($monitor)[0];
     }
 

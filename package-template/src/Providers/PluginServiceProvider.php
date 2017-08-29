@@ -24,6 +24,8 @@ class @@PluginServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../migrations/insert_@@plugin_monitor.php' => database_path('/migrations/' . $timestamp . '_insert_@@plugin_monitor.php'),
         ], 'database');
+
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
     }
 
     /**

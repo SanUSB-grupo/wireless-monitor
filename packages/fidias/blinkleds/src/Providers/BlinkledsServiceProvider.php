@@ -24,6 +24,8 @@ class BlinkledsServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../migrations/insert_blinkleds_monitor.php' => database_path('/migrations/' . $timestamp . '_insert_blinkleds_monitor.php'),
         ], 'database');
+
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
     }
 
     /**

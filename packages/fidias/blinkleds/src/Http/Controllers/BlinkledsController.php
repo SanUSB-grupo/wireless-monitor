@@ -44,7 +44,7 @@ class BlinkledsController extends AbstractMonitorController
         $result = $request->toArray();
         $result['type'] = 'blinkleds';
         $monitor = $this->_save($result);
-        flash('Blink LEDs Monitor created successfully.')->success()->important();
+        flash('Blink LEDs Monitor saved successfully.')->success()->important();
         return redirect("/monitor/{$monitor->id}");
     }
 

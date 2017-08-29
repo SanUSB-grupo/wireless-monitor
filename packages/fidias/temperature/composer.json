@@ -18,5 +18,10 @@
         "psr-4": {
             "Fidias\\Temperature\\": "src/"
         }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     }
 }

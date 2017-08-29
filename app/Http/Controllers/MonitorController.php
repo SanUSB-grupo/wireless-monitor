@@ -27,7 +27,7 @@ class MonitorController extends Controller
     }
 
     public function ajaxList(Request $request) {
-        $list = Monitor::where('user_id', Auth::user()->id)
+        $list = Monitor::where('user_id', Auth::id())
             ->orderBy('updated_at', 'desc')
             ->get()
             ->toArray();
@@ -36,7 +36,7 @@ class MonitorController extends Controller
 
     public function show($id) {
         $user = Auth::user();
-        $monitor = $this->get($id, $user);
+        $monitor = $this->get($id, $user->id);
         $auth_json = "{
   \"api_key\": \"{$user->api_key}\",
   \"monitor_key\": \"{$monitor->monitor_key}\"
@@ -55,14 +55,14 @@ class MonitorController extends Controller
             'auth_json' => $auth_json,
             'example_send' => $example_send,
             'login_cmd' => $login_cmd,
-            'send_cmd' => $send_cmd,
+            'send_cmd' => $send_cmd
         ]);
     }
 
     public function ajaxGet(Request $request) {
-        $user = Auth::user();
+        $user_id = Auth::id();
         $id = $request->input('id');
-        $monitor = $this->get($id, $user);
+        $monitor = $this->get($id, $user_id);
         return response()->json(['monitor' => $monitor, 'ok' => true]);
     }
 
@@ -71,30 +71,30 @@ class MonitorController extends Controller
         $limit = (int) $request->input('limit', 30);
         $order = $request->input('order', 'asc');
         $user = Auth::user();
-        $list = DB::table('measures')
-                    ->join('monitors', 'measures.monitor_id', '=', 'monitors.id')
+        $list = DB::table('measures as me')
+                    ->join('monitors', 'me.monitor_id', '=', 'monitors.id')
                     ->join('users', 'monitors.user_id', '=', 'users.id')
-                    ->select('measures.*')
+                    ->select('me.data', 'me.created_at', 'me.updated_at', 'me.id')
                     ->where([
                         ['monitors.id', '=', $id],
                         ['users.id', '=', $user->id]
                     ])
-                    ->orderBy('measures.created_at', $order)
+                    ->orderBy('me.created_at', $order)
                     ->take($limit)
-                    ->get();
+                    ->get()->all();
         $items = Measure::hydrate($list);
 
         return response()->json(['items' => $items, 'ok' => true]);
     }
 
-    private function get($id, $user) {
-        $monitor = DB::table('monitors')
-                    ->join('users', 'monitors.user_id', '=', 'users.id')
-                    ->select('monitors.*')
+    private function get($id, $user_id) {
+        $monitor = DB::table('monitors as m')
+                    ->join('users', 'm.user_id', '=', 'users.id')
+                    ->select('m.id', 'm.monitor_key', 'm.data')
                     ->where([
-                        ['monitors.id', '=', $id],
-                        ['users.id', '=', $user->id]
-                    ])->get();
+                        ['m.id', '=', $id],
+                        ['users.id', '=', $user_id]
+                    ])->get()->all();
         return Monitor::hydrate($monitor)[0];
     }
 
