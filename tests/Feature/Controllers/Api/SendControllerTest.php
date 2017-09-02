@@ -3,12 +3,12 @@
 namespace Tests\Feature\Controllers\Api;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Http\Controllers\Api\SendController as Controller;
 
 class SendControllerTest extends TestCase
 {
-    use DatabaseMigrations;
+    use RefreshDatabase;
 
     /**
      * @test

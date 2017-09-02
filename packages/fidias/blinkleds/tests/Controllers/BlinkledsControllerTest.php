@@ -4,14 +4,13 @@ namespace Tests\Controllers;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use League\JsonGuard\Validator;
 use App\Monitor;
 
 class BlinkledsControllerTest extends TestCase
 {
-    use WithoutMiddleware, DatabaseMigrations;
+    use WithoutMiddleware, RefreshDatabase;
 
     /**
      * @test

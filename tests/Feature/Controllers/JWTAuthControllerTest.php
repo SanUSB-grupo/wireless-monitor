@@ -4,13 +4,13 @@ namespace Tests\Feature\Controllers;
 
 use Tests\TestCase;
 use App\User;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Webpatser\Uuid\Uuid;
 use App\Monitor;
 
 class JWTAuthControllerTest extends TestCase
 {
-    use DatabaseMigrations;
+    use RefreshDatabase;
 
     private $user;
     private $monitor;

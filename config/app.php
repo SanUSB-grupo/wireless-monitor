@@ -124,11 +124,6 @@ return [
 
     'providers' => [
         /*
-         * Laravel Debug Bar
-         */
-        // Barryvdh\Debugbar\ServiceProvider::class,
-
-        /*
          * Laravel Framework Service Providers...
          */
         Illuminate\Auth\AuthServiceProvider::class,
@@ -150,7 +145,6 @@ return [
         Illuminate\Redis\RedisServiceProvider::class,
         Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
         Illuminate\Session\SessionServiceProvider::class,
-        Laravel\Tinker\TinkerServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
@@ -162,7 +156,6 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Laracasts\Flash\FlashServiceProvider::class,
 
         // Bootstrap Form
         Collective\Html\HtmlServiceProvider::class,
@@ -220,7 +213,6 @@ return [
         'Session' => Illuminate\Support\Facades\Session::class,
         'Storage' => Illuminate\Support\Facades\Storage::class,
         'URL' => Illuminate\Support\Facades\URL::class,
-        'Uuid' => Webpatser\Uuid\Uuid::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
@@ -232,8 +224,5 @@ return [
         // JWT
         'JWTAuth'   => Tymon\JWTAuth\Facades\JWTAuth::class,
         'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
-
-        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
-
 ];

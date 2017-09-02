@@ -104,7 +104,7 @@ class MonitorController extends Controller
 
     private function parseToSendCmd($example_send) {
         $output = str_replace(array(" ", "\r", "\n", "\r\n"), "", $example_send);
-        return "curl -i -X POST -H 'Content-Type: application/json' "
+        return "curl -i -X POST -H 'X-Requested-With:XMLHttpRequest' -H 'Content-Type: application/json' "
             . "-H 'Authorization: Bearer <TOKEN>' -d '{\"data\":{$output}}'";
     }
 }
