@@ -3,12 +3,12 @@
 namespace Tests\Feature\Controllers;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class MonitorControllerTest extends TestCase
 {
-    use DatabaseMigrations, WithoutMiddleware;
+    use RefreshDatabase, WithoutMiddleware;
 
     private $user;
     private $monitor;

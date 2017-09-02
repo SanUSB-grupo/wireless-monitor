@@ -15,3 +15,5 @@ composer.phar
 /docs/_book
 /docs/node_modules
 _reports
+npm-debug.log
+yarn-error.log
