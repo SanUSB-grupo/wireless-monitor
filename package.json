@@ -12,7 +12,7 @@
     "docs:publish": "npm run docs:build && cd docs/_book && git init && git commit --allow-empty -m 'Update docs' && git checkout -b gh-pages && git add . && git commit -am 'Update docs' && git push git@github.com:SanUSB-grupo/wireless-monitor gh-pages --force"
   },
   "devDependencies": {
-    "bower": "^1.7.9",
+    "bower": "^1.8.8",
     "git-user-info": "^1.0.0",
     "gitbook-cli": "^2.3.0",
     "gulp": "^3.9.1",
