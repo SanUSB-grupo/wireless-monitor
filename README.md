@@ -10,6 +10,10 @@ Web app to receive and show data that comes from IOT devices.
 
 <https://sanusb-grupo.github.io/wireless-monitor/>
 
+## Simple https sensing application tutorial: 
+
+<https://www.youtube.com/watch?v=nR6XIbSMn04/>
+
 ## Getting Started
 
 Install composer from <getcomposer.org>
