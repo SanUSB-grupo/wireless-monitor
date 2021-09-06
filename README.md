@@ -15,7 +15,10 @@ Web app to receive and show data that comes from IOT devices.
 <https://www.youtube.com/watch?v=nR6XIbSMn04/>
 
 
-## Applications of this project can be seen in the paper at <http://dx.doi.org/10.18265/1517-03062015v1n46p226-236> and in the video at <https://youtu.be/DCCZP3mGIqY>
+## Applications of this project can be seen in the paper:
+<http://dx.doi.org/10.18265/1517-03062015v1n46p226-236> 
+##and in the video:
+<https://youtu.be/DCCZP3mGIqY>
 
 ## Getting Started
 
