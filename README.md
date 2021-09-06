@@ -16,9 +16,7 @@ Web app to receive and show data that comes from IOT devices.
 
 
 ## Applications of this project can be seen in the paper:
-<http://dx.doi.org/10.18265/1517-03062015v1n46p226-236> 
-##and in the video:
-<https://youtu.be/DCCZP3mGIqY>
+<http://dx.doi.org/10.18265/1517-03062015v1n46p226-236> and in the video: <https://youtu.be/DCCZP3mGIqY>
 
 ## Getting Started
 
